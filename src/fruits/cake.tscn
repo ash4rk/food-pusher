@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4qi84tj3vjxm"]
+
+[ext_resource type="Script" path="res://src/fruits/base_fruit.gd" id="1_cb0pa"]
+[ext_resource type="PackedScene" uid="uid://r588q4aok211" path="res://assets/models/kenney_food-kit/cake.glb" id="2_133l7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rv5tb"]
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8rvpy"]
+height = 0.247
+radius = 0.319023
+
+[node name="Cake" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_rv5tb")
+freeze = true
+linear_damp = 0.72
+script = ExtResource("1_cb0pa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0.0623692, 0)
+shape = SubResource("CylinderShape3D_8rvpy")
+
+[node name="Mesh" parent="." instance=ExtResource("2_133l7")]
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
