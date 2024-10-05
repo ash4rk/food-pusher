@@ -4,14 +4,21 @@ class_name Thrower
 @export var FRUIT_SCENE: PackedScene
 @export var Z_THROW_VEC_LENGTH: float = 12.4
 @export var Y_THROW_VEC_LENGTH: float = 1.75
+@export var MOVEMENT_APLITUDE: float = 1.0
 @export var mass = 1.0
 @export var gravity_scale = 1.0
 
 @onready var moving_holder: Node3D = $MovingHolder
-@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var tween: Tween = get_tree().create_tween()
 
 func _ready() -> void:
-	anim_player.play("move_loop")
+	start_moving_loop()
+
+func start_moving_loop():
+	moving_holder.position.x = MOVEMENT_APLITUDE
+	tween.set_loops().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(moving_holder, "position", Vector3(-MOVEMENT_APLITUDE, 0, 0), 1.5)
+	tween.tween_property(moving_holder, "position", Vector3(MOVEMENT_APLITUDE, 0, 0), 1.5)
 
 func _input(event: InputEvent) -> void:
 	if event.is_pressed() and Input.is_key_pressed(KEY_SPACE):
