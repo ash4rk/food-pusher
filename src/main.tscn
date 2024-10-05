@@ -1,0 +1,140 @@
+[gd_scene load_steps=16 format=3 uid="uid://bfrudbi127ate"]
+
+[ext_resource type="Script" path="res://src/world.gd" id="1_0qbku"]
+[ext_resource type="Texture2D" uid="uid://btcqrnx48yq4g" path="res://assets/textures/kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_20heb"]
+[ext_resource type="PackedScene" uid="uid://dcxrjcibaq713" path="res://assets/models/kenney_food-kit/apple.glb" id="2_hvyoj"]
+[ext_resource type="Texture2D" uid="uid://b1u08ak6ut2m3" path="res://assets/textures/kenney_prototype-textures/PNG/Light/texture_01.png" id="3_q5xpm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p1y2"]
+sky_top_color = Color(0.140823, 0.000251531, 0.268778, 1)
+sky_horizon_color = Color(0.589578, 0.0039989, 0.964162, 1)
+sky_curve = 0.109807
+ground_bottom_color = Color(0.622218, 0.657828, 1, 1)
+
+[sub_resource type="Sky" id="Sky_rbj7k"]
+sky_material = SubResource("ProceduralSkyMaterial_5p1y2")
+
+[sub_resource type="Environment" id="Environment_a3w2l"]
+background_mode = 2
+sky = SubResource("Sky_rbj7k")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aa8w0"]
+size = Vector3(2.4, 0.2, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djoyc"]
+albedo_color = Color(0.910807, 0.854859, 1, 1)
+albedo_texture = ExtResource("1_20heb")
+uv1_scale = Vector3(2.4, 10, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_26yu0"]
+material = SubResource("StandardMaterial3D_djoyc")
+size = Vector2(2.4, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1q7bn"]
+albedo_color = Color(0.0745098, 0.0901961, 1, 1)
+albedo_texture = ExtResource("3_q5xpm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0keq2"]
+albedo_color = Color(0, 0.380392, 1, 1)
+albedo_texture = ExtResource("3_q5xpm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnpl1"]
+albedo_color = Color(0.611765, 1, 1, 1)
+albedo_texture = ExtResource("3_q5xpm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duws4"]
+albedo_color = Color(0, 0.380392, 1, 1)
+albedo_texture = ExtResource("3_q5xpm")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4goh4"]
+radius = 0.0983023
+
+[node name="Main" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a3w2l")
+
+[node name="World" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69512, 0)
+script = ExtResource("1_0qbku")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.924106, 0.382135, 0, -0.382135, 0.924106, 0, 3.92015, 0)
+
+[node name="MainCamera" type="Camera3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.999876, 0.0157073, 0, -0.0157073, 0.999876, 0, 2.792, 0)
+current = true
+fov = 45.0
+far = 400.0
+
+[node name="Platform" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.34236)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_aa8w0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.09149)
+mesh = SubResource("PlaneMesh_26yu0")
+skeleton = NodePath("../..")
+
+[node name="Carousel" type="CSGSphere3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.995154, -0.0983298, 0, 0.0983298, 0.995154, 0, 2.74386, -9.14084)
+radius = 1.51035
+material = SubResource("StandardMaterial3D_1q7bn")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="World/Carousel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118857, 0)
+operation = 2
+radius = 1.12351
+material = SubResource("StandardMaterial3D_0keq2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World/Carousel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532836, 0)
+operation = 2
+size = Vector3(4, 2, 4)
+material = SubResource("StandardMaterial3D_mnpl1")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="World/Carousel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.543616, 0)
+radius = 0.337622
+height = 1.27986
+material = SubResource("StandardMaterial3D_duws4")
+
+[node name="Apple" type="RigidBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.619881, 0.989172, -7.54192)
+
+[node name="apple2" parent="World/Apple" instance=ExtResource("2_hvyoj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.089252, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Apple"]
+shape = SubResource("SphereShape3D_4goh4")
+
+[node name="Apple2" type="RigidBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.306932, 0.989172, -8.87019)
+
+[node name="apple2" parent="World/Apple2" instance=ExtResource("2_hvyoj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.089252, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Apple2"]
+shape = SubResource("SphereShape3D_4goh4")
+
+[node name="Apple3" type="RigidBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0623799, 0.989172, -7.86341)
+
+[node name="apple2" parent="World/Apple3" instance=ExtResource("2_hvyoj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.089252, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Apple3"]
+shape = SubResource("SphereShape3D_4goh4")
+
+[node name="FruitThrower" type="RigidBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0623799, 1.90774, -2.28615)
+freeze = true
+
+[node name="apple2" parent="World/FruitThrower" instance=ExtResource("2_hvyoj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.089252, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/FruitThrower"]
+shape = SubResource("SphereShape3D_4goh4")

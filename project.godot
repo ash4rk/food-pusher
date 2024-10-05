@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Fruit Pusher"
+run/main_scene="res://src/main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://burger_icon.png"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=400
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "orange",
+"res://assets/models/": "red",
+"res://assets/models/kenney_characters/": "red",
+"res://assets/models/kenney_food-kit/": "red",
+"res://assets/models/not_yet_used/": "gray",
+"res://assets/models/not_yet_used/kenney_mini-arcade/": "red",
+"res://assets/models/not_yet_used/kenney_tower-defense-kit/": "red",
+"res://assets/textures/": "green",
+"res://assets/textures/kenney_prototype-textures/": "green",
+"res://assets/textures/kenney_ui-pack/": "green",
+"res://src/": "purple"
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
