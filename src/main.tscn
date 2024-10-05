@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=18 format=3 uid="uid://bfrudbi127ate"]
 
 [ext_resource type="Script" path="res://src/world.gd" id="1_0qbku"]
 [ext_resource type="Texture2D" uid="uid://btcqrnx48yq4g" path="res://assets/textures/kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_20heb"]
-[ext_resource type="PackedScene" uid="uid://dcxrjcibaq713" path="res://assets/models/kenney_food-kit/apple.glb" id="2_hvyoj"]
 [ext_resource type="Texture2D" uid="uid://b1u08ak6ut2m3" path="res://assets/textures/kenney_prototype-textures/PNG/Light/texture_01.png" id="3_q5xpm"]
 [ext_resource type="PackedScene" uid="uid://b1mpbvitkjnul" path="res://assets/models/kenney_characters/character-employee.glb" id="4_3mfgr"]
 [ext_resource type="PackedScene" uid="uid://lwdyes1obava" path="res://src/thrower/thrower.tscn" id="5_6fglj"]
+[ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/fruits/cake.tscn" id="6_piesm"]
 [ext_resource type="Script" path="res://src/debug/debug.gd" id="7_1x3la"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p1y2"]
@@ -27,11 +27,11 @@ size = Vector3(2.5, 1, 10)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djoyc"]
 albedo_color = Color(0.910807, 0.854859, 1, 1)
 albedo_texture = ExtResource("1_20heb")
-uv1_scale = Vector3(2.4, 10, 1)
+uv1_scale = Vector3(3.5, 10, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_26yu0"]
 material = SubResource("StandardMaterial3D_djoyc")
-size = Vector2(2.5, 10)
+size = Vector2(3.5, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1q7bn"]
 albedo_color = Color(0.0745098, 0.0901961, 1, 1)
@@ -49,9 +49,6 @@ albedo_texture = ExtResource("3_q5xpm")
 albedo_color = Color(0, 0.380392, 1, 1)
 albedo_texture = ExtResource("3_q5xpm")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_4goh4"]
-radius = 0.0983023
-
 [node name="Main" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -65,12 +62,11 @@ script = ExtResource("1_0qbku")
 transform = Transform3D(1, 0, 0, 0, 0.924106, 0.382135, 0, -0.382135, 0.924106, 0, 3.92015, 0)
 
 [node name="MainCamera" type="Camera3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 0.999876, 0.0157073, 0, -0.0157073, 0.999876, 0, 2.792, 0)
-fov = 47.0
+transform = Transform3D(1, 0, 0, 0, 0.980271, 0.197657, 0, -0.197657, 0.980271, 0, 3.197, 0)
 far = 400.0
 
 [node name="Platform" type="StaticBody3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, -6.2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -3.025)
@@ -82,7 +78,7 @@ mesh = SubResource("PlaneMesh_26yu0")
 skeleton = NodePath("../..")
 
 [node name="Carousel" type="CSGSphere3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 0.995154, -0.0983298, 0, 0.0983298, 0.995154, 0, 2.74386, -9.14084)
+transform = Transform3D(1.38, 0, 0, 0, 1.37331, -0.135695, 0, 0.135695, 1.37331, 0, 2.894, -6.736)
 radius = 1.51035
 material = SubResource("StandardMaterial3D_1q7bn")
 
@@ -137,26 +133,115 @@ transform = Transform3D(0.4, 0, 0, 0, 0.397395, 0.0455795, 0, -0.0455795, 0.3973
 [node name="character-employee12" parent="World/Carousel" instance=ExtResource("4_3mfgr")]
 transform = Transform3D(0.4, 0, 0, 0, 0.397395, 0.0455795, 0, -0.0455795, 0.397395, -0.623559, -0.463587, 1.07012)
 
-[node name="Apple" type="RigidBody3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.619881, 0.989172, -7.54192)
-
-[node name="apple2" parent="World/Apple" instance=ExtResource("2_hvyoj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.089252, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Apple"]
-shape = SubResource("SphereShape3D_4goh4")
-
-[node name="Apple2" type="RigidBody3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.306932, 0.989172, -8.87019)
-
-[node name="apple2" parent="World/Apple2" instance=ExtResource("2_hvyoj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.089252, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Apple2"]
-shape = SubResource("SphereShape3D_4goh4")
-
 [node name="Thrower" parent="World" instance=ExtResource("5_6fglj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, -2.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, -1.31)
+
+[node name="PrespawnedCakes" type="Node3D" parent="World"]
+
+[node name="Cake" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.958032, -0.075, -4.45322)
+
+[node name="Cake2" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.958032, -0.075, -4.95322)
+
+[node name="Cake3" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.958032, -0.075, -5.45322)
+
+[node name="Cake4" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.958032, -0.075, -5.95322)
+
+[node name="Cake5" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.958032, -0.075, -6.45322)
+
+[node name="Cake6" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458032, -0.075, -4.45322)
+
+[node name="Cake7" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458032, -0.075, -4.95322)
+
+[node name="Cake8" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458032, -0.075, -5.45322)
+
+[node name="Cake9" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458032, -0.075, -5.95322)
+
+[node name="Cake10" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458032, -0.075, -6.45322)
+
+[node name="Cake11" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0419677, -0.075, -4.45322)
+
+[node name="Cake12" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0419677, -0.075, -4.95322)
+
+[node name="Cake13" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0419677, -0.075, -5.45322)
+
+[node name="Cake14" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0419677, -0.075, -5.95322)
+
+[node name="Cake15" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0419677, -0.075, -6.45322)
+
+[node name="Cake16" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.541968, -0.075, -4.45322)
+
+[node name="Cake17" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.541968, -0.075, -4.95322)
+
+[node name="Cake18" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.541968, -0.075, -5.45322)
+
+[node name="Cake19" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.541968, -0.075, -5.95322)
+
+[node name="Cake20" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.541968, -0.075, -6.45322)
+
+[node name="Cake21" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04197, -0.075, -4.45322)
+
+[node name="Cake22" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04197, -0.075, -4.95322)
+
+[node name="Cake23" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04197, -0.075, -5.45322)
+
+[node name="Cake24" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04197, -0.075, -5.95322)
+
+[node name="Cake25" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04197, -0.075, -6.45322)
+
+[node name="Cake26" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54197, -0.075, -4.45322)
+
+[node name="Cake27" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54197, -0.075, -4.95322)
+
+[node name="Cake28" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54197, -0.075, -5.45322)
+
+[node name="Cake29" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54197, -0.075, -5.95322)
+
+[node name="Cake30" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54197, -0.075, -6.45322)
+
+[node name="Cake31" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45803, -0.075, -4.45322)
+
+[node name="Cake32" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45803, -0.075, -4.95322)
+
+[node name="Cake33" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45803, -0.075, -5.45322)
+
+[node name="Cake34" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45803, -0.075, -5.95322)
+
+[node name="Cake35" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45803, -0.075, -6.45322)
 
 [node name="Debug" type="Node" parent="."]
 script = ExtResource("7_1x3la")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://lwdyes1obava"]
 
 [ext_resource type="Script" path="res://src/thrower/thrower.gd" id="1_fslfu"]
-[ext_resource type="PackedScene" uid="uid://322rg80x5ljf" path="res://src/fruits/apple.tscn" id="2_w4rk5"]
+[ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/fruits/cake.tscn" id="2_2yia8"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_7ujxb"]
 radius = 0.08
@@ -47,8 +47,8 @@ _data = {
 
 [node name="Thrower" type="Node3D"]
 script = ExtResource("1_fslfu")
-FRUIT_SCENE = ExtResource("2_w4rk5")
-Z_THROW_VEC_LENGTH = 6.0
+FRUIT_SCENE = ExtResource("2_2yia8")
+Z_THROW_VEC_LENGTH = 5.0
 Y_THROW_VEC_LENGTH = 1.645
 gravity_scale = 0.21
 

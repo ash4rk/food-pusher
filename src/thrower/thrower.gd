@@ -12,12 +12,6 @@ class_name Thrower
 
 func _ready() -> void:
 	anim_player.play("move_loop")
-	_throw_loop()
-
-func _throw_loop():
-	throw()
-	await get_tree().create_timer(0.1).timeout
-	_throw_loop()
 
 func _input(event: InputEvent) -> void:
 	if event.is_pressed() and Input.is_key_pressed(KEY_SPACE):
