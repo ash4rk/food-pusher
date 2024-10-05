@@ -33,7 +33,8 @@ folder_colors={
 "res://assets/textures/": "green",
 "res://assets/textures/kenney_prototype-textures/": "green",
 "res://assets/textures/kenney_ui-pack/": "green",
-"res://src/": "purple"
+"res://src/": "purple",
+"res://src/debug/": "gray"
 }
 
 [rendering]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://qxsxu2ni1ihl"]
+
+[ext_resource type="Script" path="res://src/environment/carousel.gd" id="1_15m3h"]
+[ext_resource type="Texture2D" uid="uid://b1u08ak6ut2m3" path="res://assets/textures/kenney_prototype-textures/PNG/Light/texture_01.png" id="1_l42av"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1q7bn"]
+albedo_color = Color(0.0745098, 0.0901961, 1, 1)
+albedo_texture = ExtResource("1_l42av")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0keq2"]
+albedo_color = Color(0, 0.380392, 1, 1)
+albedo_texture = ExtResource("1_l42av")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnpl1"]
+albedo_color = Color(0.611765, 1, 1, 1)
+albedo_texture = ExtResource("1_l42av")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duws4"]
+albedo_color = Color(0, 0.380392, 1, 1)
+albedo_texture = ExtResource("1_l42av")
+
+[node name="Carousel" type="Node3D"]
+script = ExtResource("1_15m3h")
+
+[node name="Mesh" type="CSGSphere3D" parent="."]
+transform = Transform3D(1.38, 0, 0, 0, 1.38, 0, 0, 0, 1.38, 0, 0, 0)
+radius = 1.45
+material = SubResource("StandardMaterial3D_1q7bn")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118857, 0)
+operation = 2
+radius = 1.12351
+material = SubResource("StandardMaterial3D_0keq2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532836, 0)
+operation = 2
+size = Vector3(4, 2, 4)
+material = SubResource("StandardMaterial3D_mnpl1")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.543616, 0)
+radius = 0.337622
+height = 1.27986
+material = SubResource("StandardMaterial3D_duws4")
