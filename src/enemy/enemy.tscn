@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjsv7e25n3e53"]
+
+[ext_resource type="PackedScene" uid="uid://b1mpbvitkjnul" path="res://assets/models/kenney_characters/character-employee.glb" id="1_33iy0"]
+[ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_c0lx3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wc3ru"]
+size = Vector3(0.371582, 0.668457, 0.332245)
+
+[node name="Enemy" type="StaticBody3D"]
+script = ExtResource("1_c0lx3")
+
+[node name="CharacterMesh" parent="." instance=ExtResource("1_33iy0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, 0.334229, 0.001297)
+shape = SubResource("BoxShape3D_wc3ru")

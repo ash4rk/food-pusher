@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=19 format=3 uid="uid://bfrudbi127ate"]
 
 [ext_resource type="Script" path="res://src/world.gd" id="1_0qbku"]
 [ext_resource type="Texture2D" uid="uid://btcqrnx48yq4g" path="res://assets/textures/kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_20heb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lwdyes1obava" path="res://src/thrower/thrower.tscn" id="5_6fglj"]
 [ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/fruits/cake.tscn" id="6_piesm"]
 [ext_resource type="Script" path="res://src/debug/debug.gd" id="7_1x3la"]
+[ext_resource type="PackedScene" uid="uid://bjsv7e25n3e53" path="res://src/enemy/enemy.tscn" id="7_l580n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p1y2"]
 sky_top_color = Color(0.140823, 0.000251531, 0.268778, 1)
@@ -78,7 +79,7 @@ mesh = SubResource("PlaneMesh_26yu0")
 skeleton = NodePath("../..")
 
 [node name="Carousel" type="CSGSphere3D" parent="World"]
-transform = Transform3D(1.38, 0, 0, 0, 1.37331, -0.135695, 0, 0.135695, 1.37331, 0, 2.894, -6.736)
+transform = Transform3D(1.38, 0, 0, 0, 1.37331, -0.135695, 0, 0.135695, 1.37331, 0, 2.894, -7.55931)
 radius = 1.51035
 material = SubResource("StandardMaterial3D_1q7bn")
 
@@ -99,9 +100,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.543616, 0)
 radius = 0.337622
 height = 1.27986
 material = SubResource("StandardMaterial3D_duws4")
-
-[node name="character-employee2" parent="World/Carousel" instance=ExtResource("4_3mfgr")]
-transform = Transform3D(0.4, 0, 0, 0, 0.397395, 0.0455795, 0, -0.0455795, 0.397395, 0.185517, -0.45393, 1.16367)
 
 [node name="character-employee3" parent="World/Carousel" instance=ExtResource("4_3mfgr")]
 transform = Transform3D(0.4, 0, 0, 0, 0.397395, 0.0455795, 0, -0.0455795, 0.397395, 0.879384, -0.486225, 0.836826)
@@ -127,11 +125,14 @@ transform = Transform3D(0.4, 0, 0, 0, 0.397395, 0.0455795, 0, -0.0455795, 0.3973
 [node name="character-employee10" parent="World/Carousel" instance=ExtResource("4_3mfgr")]
 transform = Transform3D(0.4, 0, 0, 0, 0.397395, 0.0455795, 0, -0.0455795, 0.397395, -1.25045, -0.463886, -0.0119867)
 
-[node name="character-employee11" parent="World/Carousel" instance=ExtResource("4_3mfgr")]
-transform = Transform3D(0.4, 0, 0, 0, 0.397395, 0.0455795, 0, -0.0455795, 0.397395, -1.11511, -0.482666, 0.644367)
+[node name="Enemy" parent="World/Carousel" instance=ExtResource("7_l580n")]
+transform = Transform3D(0.724638, 0, 0, 0, 0.721126, 0.0712536, 0, -0.0712536, 0.721126, 0.0425525, -0.472779, 1.1836)
 
-[node name="character-employee12" parent="World/Carousel" instance=ExtResource("4_3mfgr")]
-transform = Transform3D(0.4, 0, 0, 0, 0.397395, 0.0455795, 0, -0.0455795, 0.397395, -0.623559, -0.463587, 1.07012)
+[node name="Enemy2" parent="World/Carousel" instance=ExtResource("7_l580n")]
+transform = Transform3D(0.600313, -3.37436e-09, -0.405862, 0.0399084, 0.721126, 0.0590287, 0.403895, -0.0712535, 0.597404, -0.635873, -0.492896, 0.980009)
+
+[node name="Enemy3" parent="World/Carousel" instance=ExtResource("7_l580n")]
+transform = Transform3D(0.397123, -1.07979e-08, -0.606129, 0.0596006, 0.721126, 0.0390491, 0.603192, -0.0712536, 0.395199, -1.07529, -0.542524, 0.477745)
 
 [node name="Thrower" parent="World" instance=ExtResource("5_6fglj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, -1.31)
