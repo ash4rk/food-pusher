@@ -10,7 +10,7 @@ absorbent = true
 height = 0.119494
 radius = 0.159967
 
-[node name="Cake" type="RigidBody3D"]
+[node name="Cake" type="RigidBody3D" groups=["fruits"]]
 physics_material_override = SubResource("PhysicsMaterial_rv5tb")
 freeze = true
 linear_damp = 0.72

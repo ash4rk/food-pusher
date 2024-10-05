@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://vgbu8l6a63fd"]
+
+[ext_resource type="Texture2D" uid="uid://chippxnrlhr6j" path="res://assets/models/kenney_characters/Textures/colormap.png" id="1_0knbv"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_0knbv")
+texture_filter = 2
