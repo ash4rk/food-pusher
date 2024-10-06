@@ -1,21 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://322rg80x5ljf"]
+[gd_scene load_steps=4 format=3 uid="uid://322rg80x5ljf"]
 
-[ext_resource type="Script" path="res://src/valuables/base_food.gd" id="1_eheil"]
 [ext_resource type="PackedScene" uid="uid://dcxrjcibaq713" path="res://assets/models/kenney_food-kit/apple.glb" id="1_uorp4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7htaw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lt7np"]
-radius = 0.0983023
+radius = 0.106295
 
 [node name="Apple" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_7htaw")
 freeze = true
-script = ExtResource("1_eheil")
-type = "Food (aka coin)"
+linear_damp = 0.72
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00950951, 0)
 shape = SubResource("SphereShape3D_lt7np")
 
 [node name="Mesh" parent="." instance=ExtResource("1_uorp4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.089252, 0)
+transform = Transform3D(1.145, 0, 0, 0, 1.145, 0, 0, 0, 1.145, 0, -0.089252, 0)

@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4qi84tj3vjxm"]
+[gd_scene load_steps=4 format=3 uid="uid://b4qi84tj3vjxm"]
 
-[ext_resource type="Script" path="res://src/valuables/base_food.gd" id="1_cb0pa"]
 [ext_resource type="PackedScene" uid="uid://r588q4aok211" path="res://assets/models/kenney_food-kit/cake.glb" id="2_133l7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rv5tb"]
@@ -14,8 +13,6 @@ radius = 0.159967
 physics_material_override = SubResource("PhysicsMaterial_rv5tb")
 freeze = true
 linear_damp = 0.72
-script = ExtResource("1_cb0pa")
-type = "Food (aka coin)"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0602043, 0)
