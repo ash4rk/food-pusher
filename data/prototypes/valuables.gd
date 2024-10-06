@@ -28,7 +28,7 @@ class_name ValuablesData
 func get_value(type) -> int:
 	if !drops.has(type):
 		push_error("Can't find type %s. 
-					Assign type for scene or declare new in data." % type)
+					Assign type for dropable scene or fill drops with new data." % type)
 	return drops[type]["value"]
 
 
