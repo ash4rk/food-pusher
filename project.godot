@@ -17,8 +17,8 @@ config/icon="res://burger_icon.png"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=400
+window/size/viewport_width=860
+window/size/viewport_height=1030
 
 [file_customization]
 
