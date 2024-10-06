@@ -49,16 +49,9 @@ func _create_random_food():
 	return instance
 
 # TODO: Log it
-func _load_food_scenes(food_dir_path: String):
+func _load_food_scenes(food_dir_path: String) -> Array:
 	var res: Array = []
-	var dir = DirAccess.open(food_dir_path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			var file_path = food_dir_path + '/' + file_name
-			res.push_back(load(file_path))
-			file_name = dir.get_next()
-	else:
-		push_error("An error occurred when trying to access the path.")
+	var file_paths = Utilities.get_files_by_filter(food_dir_path, ".tscn")
+	for path in file_paths:
+		res.push_back(load(path))
 	return res
