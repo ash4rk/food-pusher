@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://0004jdg6hhkq"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_x5b2e"]
+[ext_resource type="PackedScene" uid="uid://rr25fr6qxuy4" path="res://assets/models/kenney_food-kit/chocolate.glb" id="2_qmadr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_53i1a"]
+size = Vector3(0.290449, 0.0449158, 0.147178)
+
+[node name="Chocolate" type="RigidBody3D" groups=["foods"]]
+script = ExtResource("1_x5b2e")
+type = "Food (aka coin)"
+
+[node name="ChocolateMesh" parent="." instance=ExtResource("2_qmadr")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, -0.00098145, 0.021, 0.0029541)
+shape = SubResource("BoxShape3D_53i1a")

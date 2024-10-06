@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3wcvrxcb22nm"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_m27vm"]
+[ext_resource type="PackedScene" uid="uid://rawe2ctjus5p" path="res://assets/models/kenney_food-kit/meat-cooked.glb" id="2_f13ms"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ot55l"]
+height = 0.0468694
+radius = 0.154446
+
+[node name="Meat" type="RigidBody3D" groups=["foods"]]
+script = ExtResource("1_m27vm")
+type = "Food (aka coin)"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0.0128275, 0.021, 0.0161288)
+shape = SubResource("CylinderShape3D_ot55l")
+
+[node name="MeatMesh" parent="." instance=ExtResource("2_f13ms")]
+transform = Transform3D(0.59, 0, 0, 0, 0.59, 0, 0, 0, 0.59, 0, 0, 0)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c63v4r1sixyas"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_2u5fn"]
+[ext_resource type="PackedScene" uid="uid://bke60hlxk7a5d" path="res://assets/models/kenney_food-kit/burger-cheese.glb" id="2_6kg1k"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fa2kg"]
+height = 0.150862
+radius = 0.128256
+
+[node name="Burger" type="RigidBody3D" groups=["foods"]]
+script = ExtResource("1_2u5fn")
+type = "Food (aka coin)"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0.076205, 0)
+shape = SubResource("CylinderShape3D_fa2kg")
+
+[node name="BurgerMesh" parent="." instance=ExtResource("2_6kg1k")]
+transform = Transform3D(0.69, 0, 0, 0, 0.69, 0, 0, 0, 0.69, 0, 0, 0)

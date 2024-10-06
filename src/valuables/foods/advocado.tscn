@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://gyopufyoy24v"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_8gxg6"]
+[ext_resource type="PackedScene" uid="uid://dwyo5764myt30" path="res://assets/models/kenney_food-kit/advocado-half.glb" id="2_ekegf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_br6bi"]
+radius = 0.116664
+height = 0.315251
+
+[node name="Advocado" type="RigidBody3D" groups=["foods"]]
+script = ExtResource("1_8gxg6")
+type = "Food (aka coin)"
+
+[node name="AdvocadoMesh" parent="." instance=ExtResource("2_ekegf")]
+transform = Transform3D(-6.03217e-08, -1.38, 0, 1.38, -6.03217e-08, 0, 0, 0, 1.38, 0.124685, 0.0774351, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.0266503, 0.0739, -0.00122903)
+shape = SubResource("CapsuleShape3D_br6bi")

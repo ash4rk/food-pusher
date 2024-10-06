@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi1oh4arcgbvj"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_ahgxg"]
+[ext_resource type="PackedScene" uid="uid://bjtoj6dbgvjj5" path="res://assets/models/kenney_food-kit/sub.glb" id="2_vysbu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_23d6v"]
+radius = 0.0594785
+height = 0.309661
+
+[node name="Sub" type="RigidBody3D"]
+script = ExtResource("1_ahgxg")
+type = "Food (aka coin)"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["foods"]]
+transform = Transform3D(1, -1.06581e-14, 0, -4.6588e-22, -4.37114e-08, 1, -1.06581e-14, -1, -4.37114e-08, 0, 0.0444865, 0)
+shape = SubResource("CapsuleShape3D_23d6v")
+
+[node name="SubMesh" parent="." instance=ExtResource("2_vysbu")]
+transform = Transform3D(0.455, 0, 0, 0, 0.455, 0, 0, 0, 0.455, 0, 0, 0)

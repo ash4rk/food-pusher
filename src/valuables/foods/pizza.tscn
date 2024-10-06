@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://5edmcy73glkr"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_gf8qb"]
+[ext_resource type="PackedScene" uid="uid://bwja62qwf4qfa" path="res://assets/models/kenney_food-kit/pizza.glb" id="2_oufgj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gb5ku"]
+height = 0.0468694
+radius = 0.188385
+
+[node name="Pizza" type="RigidBody3D" groups=["foods"]]
+script = ExtResource("1_gf8qb")
+type = "Food (aka coin)"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0.021, 0)
+shape = SubResource("CylinderShape3D_gb5ku")
+
+[node name="PizzaMesh" parent="." instance=ExtResource("2_oufgj")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)

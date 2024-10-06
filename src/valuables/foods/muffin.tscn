@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0rncer385jc8"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_646eu"]
+[ext_resource type="PackedScene" uid="uid://c2cabsxo67r5x" path="res://assets/models/kenney_food-kit/muffin.glb" id="2_p8c0g"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qyip4"]
+height = 0.145214
+radius = 0.0840564
+
+[node name="Muffin" type="RigidBody3D" groups=["foods"]]
+script = ExtResource("1_646eu")
+type = "Food (aka coin)"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0.073775, 0)
+shape = SubResource("CylinderShape3D_qyip4")
+
+[node name="MuffinMesh" parent="." instance=ExtResource("2_p8c0g")]
+transform = Transform3D(0.585, 0, 0, 0, 0.585, 0, 0, 0, 0.585, 0, 0, 0)

@@ -13,5 +13,5 @@ freeze = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0602043, 0)
 shape = SubResource("CylinderShape3D_8rvpy")
 
-[node name="Mesh" parent="." instance=ExtResource("2_133l7")]
+[node name="CakeMesh" parent="." instance=ExtResource("2_133l7")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
