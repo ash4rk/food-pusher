@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=24 format=3 uid="uid://bfrudbi127ate"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_8n3pa"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_va7wq"]
@@ -8,9 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b41s0se6u3mlm" path="res://src/environment/platform.tscn" id="5_mfm77"]
 [ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/valuables/foods/cake.tscn" id="6_piesm"]
 [ext_resource type="Script" path="res://src/debug/debug.gd" id="7_1x3la"]
-[ext_resource type="PackedScene" uid="uid://oecb6yc22ei5" path="res://src/environment/water_plane.tscn" id="7_akukc"]
-[ext_resource type="PackedScene" uid="uid://ct2vfaayhjrh4" path="res://src/environment/water_splash.tscn" id="8_ljrhq"]
-[ext_resource type="Script" path="res://src/environment/object_remover.gd" id="9_4o0cq"]
+[ext_resource type="PackedScene" uid="uid://duhjuei23ge2p" path="res://src/environment/water/water.tscn" id="7_35qej"]
 [ext_resource type="PackedScene" uid="uid://cnounborj62l5" path="res://src/ui/widgets/game_stats_ui.tscn" id="11_n2lx6"]
 
 [sub_resource type="Gradient" id="Gradient_e2e57"]
@@ -89,9 +87,6 @@ fog_mode = 1
 fog_density = 0.3675
 fog_aerial_perspective = 0.945
 fog_sky_affect = 0.265
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4ebyt"]
-size = Vector3(30, 5.34424, 25)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_8n3pa")
@@ -266,24 +261,11 @@ freeze = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.973488, -0.075, -0.607352)
 freeze = false
 
+[node name="Water" parent="World" instance=ExtResource("7_35qej")]
+
 [node name="Platform" parent="World" instance=ExtResource("5_mfm77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, -6.2)
 metadata/_edit_lock_ = true
-
-[node name="WaterPlane" parent="World" instance=ExtResource("7_akukc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.762894, -100)
-skeleton = NodePath("../..")
-metadata/_edit_lock_ = true
-
-[node name="ObjectRemover" type="Area3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -10)
-script = ExtResource("9_4o0cq")
-WATER_SPLASH_SCENE = ExtResource("8_ljrhq")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/ObjectRemover"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327881, -2.2)
-shape = SubResource("BoxShape3D_4ebyt")
 
 [node name="Debug" type="Node" parent="."]
 script = ExtResource("7_1x3la")

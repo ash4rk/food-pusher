@@ -44,6 +44,7 @@ func start_moving_loop():
 	tween.tween_property(moving_holder, "position", Vector3(-MOVEMENT_APLITUDE, 0, 0), 1.5)
 	tween.tween_property(moving_holder, "position", Vector3(MOVEMENT_APLITUDE, 0, 0), 1.5)
 
+# TODO: resolve warning
 func throw(food_to_throw: RigidBody3D):
 	_food_in_holder.reparent(get_parent())
 	var z_comp = -self.basis.z * Z_THROW_VEC_LENGTH

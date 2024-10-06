@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ct2vfaayhjrh4"]
 
 [ext_resource type="Texture2D" uid="uid://cgm6pksp2la5s" path="res://assets/textures/water_circles_mask.png" id="1_53aqk"]
-[ext_resource type="Script" path="res://src/environment/water_splash.gd" id="2_iycft"]
+[ext_resource type="Script" path="res://src/environment/water/water_splash.gd" id="2_iycft"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bll0p"]
 transparency = 1
