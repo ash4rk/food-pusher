@@ -3,12 +3,11 @@ class_name Thrower
 
 # TODO: Choose random food from src/foods/*.tscn
 @export var FOOD_DIR_PATH: String = "res://src/valuables/foods/"
-@export var Z_THROW_VEC_LENGTH: float = 12.4
-@export var Y_THROW_VEC_LENGTH: float = 1.75
+@export var Z_THROW_VEC_LENGTH: float = 7.05
+@export var Y_THROW_VEC_LENGTH: float = 2.225
 @export var MOVEMENT_APLITUDE: float = 1.0
-# TODO: Get rid of it
-@export var mass = 1.0
-@export var gravity_scale = 1.0
+# TODO: Get rid of it, change in project settings instead
+#@export var gravity_scale = 0.275
 
 @onready var moving_holder: Node3D = $MovingHolder
 @onready var tween: Tween = get_tree().create_tween()
@@ -35,8 +34,7 @@ func throw():
 	var y_comp = moving_holder.basis.y * Y_THROW_VEC_LENGTH
 	var throw_vec: Vector3 = z_comp + y_comp
 	food.freeze = false
-	food.mass = mass
-	food.gravity_scale = gravity_scale
+	#food.gravity_scale = gravity_scale
 	food.apply_impulse(throw_vec)
 
 func _create_random_food():

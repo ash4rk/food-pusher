@@ -8,9 +8,8 @@ height = 0.16
 
 [node name="Thrower" type="Node3D"]
 script = ExtResource("1_fslfu")
-Z_THROW_VEC_LENGTH = 7.05
-Y_THROW_VEC_LENGTH = 2.225
-gravity_scale = 0.275
+Z_THROW_VEC_LENGTH = 10.0
+Y_THROW_VEC_LENGTH = 4.58
 
 [node name="MovingHolder" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
