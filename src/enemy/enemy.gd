@@ -1,6 +1,5 @@
 extends StaticBody3D
 
-# TODO: Randomize mesh from assets/models/kenney_characters/*.glb
 const MAX_HEALTH: int = 5
 const BOX_POKE_LENGTH: float = 1.4
 const MODELS_PATH: String = "res://assets/models/kenney_characters/"

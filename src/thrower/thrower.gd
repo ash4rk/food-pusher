@@ -30,8 +30,7 @@ func _process(delta: float) -> void:
 	moving_holder.rotate_y(delta * HOLDER_ROTATION_SPEED)
 
 func _input(event: InputEvent) -> void:
-	# TODO: Declare action name
-	if event.is_pressed() and Input.is_key_pressed(KEY_SPACE):
+	if event.is_action_pressed("throw"):
 		if remaining_throws > 0:
 			throw(_food_in_holder)
 			EventBus.emit_signal("on_remaining_throws_changed", remaining_throws - 1)

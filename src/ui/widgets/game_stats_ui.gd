@@ -19,4 +19,3 @@ func _ready() -> void:
 	EventBus.on_promos_changed.connect(_on_promos_changed)
 	EventBus.on_remaining_throws_changed.connect(_on_remaining_throws_changed)
 	EventBus.on_rewards_changed.connect(_on_rewards_changed)
-	

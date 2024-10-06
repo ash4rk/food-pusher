@@ -5,7 +5,6 @@ extends Area3D
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 
-
 func _on_body_entered(body: Node3D):
 	var splash_instance: CPUParticles3D = WATER_SPLASH_SCENE.instantiate()
 	get_parent().add_child(splash_instance)
