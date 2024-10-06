@@ -1,6 +1,8 @@
 extends Node3D
 class_name Thrower
 
+const HOLDER_ROTATION_SPEED = 5
+
 @export var FOOD_DIR_PATH: String = "res://src/valuables/foods/"
 @export var Z_THROW_VEC_LENGTH: float = 7.05
 @export var Y_THROW_VEC_LENGTH: float = 2.225
@@ -17,6 +19,9 @@ func _ready() -> void:
 	_food_scenes = _load_food_scenes(FOOD_DIR_PATH)
 	_food_in_holder = _create_random_food()
 
+func _process(delta: float) -> void:
+	moving_holder.rotate_y(delta * HOLDER_ROTATION_SPEED)
+
 func start_moving_loop():
 	moving_holder.position.x = MOVEMENT_APLITUDE
 	tween.set_loops().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
@@ -30,8 +35,8 @@ func _input(event: InputEvent) -> void:
 
 func throw(food_to_throw: RigidBody3D):
 	_food_in_holder.reparent(get_parent())
-	var z_comp = -moving_holder.basis.z * Z_THROW_VEC_LENGTH
-	var y_comp = moving_holder.basis.y * Y_THROW_VEC_LENGTH
+	var z_comp = -self.basis.z * Z_THROW_VEC_LENGTH
+	var y_comp = self.basis.y * Y_THROW_VEC_LENGTH
 	var throw_vec: Vector3 = z_comp + y_comp
 	_food_in_holder.freeze = false
 	_food_in_holder.apply_impulse(throw_vec)
