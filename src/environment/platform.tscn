@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://b41s0se6u3mlm"]
+
+[ext_resource type="PackedScene" uid="uid://cgivne2jq8fod" path="res://assets/models/kenney_platform/platform.glb" id="4_6fuq5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aa8w0"]
+size = Vector3(2.2677, 0.304626, 8.70898)
+
+[node name="Platform" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00640869, -0.152313, -2.37949)
+shape = SubResource("BoxShape3D_aa8w0")
+
+[node name="PlatformMeshes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00424349, -0.043, 0)
+
+[node name="Row" type="Node3D" parent="PlatformMeshes"]
+
+[node name="platform2" parent="PlatformMeshes/Row" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -0.573952, -0.162624, 1.42242)
+
+[node name="platform4" parent="PlatformMeshes/Row" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -0.573952, -0.162624, 0.291401)
+
+[node name="platform6" parent="PlatformMeshes/Row" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -0.573952, -0.162624, -0.818853)
+
+[node name="platform8" parent="PlatformMeshes/Row" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -0.573952, -0.162624, -1.85092)
+
+[node name="platform10" parent="PlatformMeshes/Row" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -0.573952, -0.162624, -2.9338)
+
+[node name="platform12" parent="PlatformMeshes/Row" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -0.573952, -0.162624, -4.02949)
+
+[node name="platform14" parent="PlatformMeshes/Row" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -0.573952, -0.162624, -5.10717)
+
+[node name="platform16" parent="PlatformMeshes/Row" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -0.573952, -0.162624, -6.14156)
+
+[node name="platform18" parent="PlatformMeshes/Row" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -0.573952, -0.162624, -6.14156)
+
+[node name="Row2" type="Node3D" parent="PlatformMeshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0404138, 0, 0)
+
+[node name="platform3" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, 1.42242)
+
+[node name="platform5" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, 0.291401)
+
+[node name="platform7" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, -0.818853)
+
+[node name="platform9" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, -1.85092)
+
+[node name="platform11" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, -2.9338)
+
+[node name="platform13" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, -4.02949)
+
+[node name="platform15" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, -5.10717)
+
+[node name="platform17" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, -6.14156)
+
+[node name="platform19" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, -6.14156)

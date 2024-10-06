@@ -1,10 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=22 format=3 uid="uid://bfrudbi127ate"]
 
-[ext_resource type="Texture2D" uid="uid://btcqrnx48yq4g" path="res://assets/textures/kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_20heb"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_va7wq"]
 [ext_resource type="PackedScene" uid="uid://bjsv7e25n3e53" path="res://src/enemy/enemy.tscn" id="2_imn7o"]
 [ext_resource type="PackedScene" uid="uid://qxsxu2ni1ihl" path="res://src/environment/carousel.tscn" id="4_i5ptg"]
 [ext_resource type="PackedScene" uid="uid://lwdyes1obava" path="res://src/thrower/thrower.tscn" id="5_6fglj"]
+[ext_resource type="PackedScene" uid="uid://b41s0se6u3mlm" path="res://src/environment/platform.tscn" id="5_mfm77"]
 [ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/valuables/foods/cake.tscn" id="6_piesm"]
 [ext_resource type="Script" path="res://src/debug/debug.gd" id="7_1x3la"]
 [ext_resource type="PackedScene" uid="uid://oecb6yc22ei5" path="res://src/environment/water_plane.tscn" id="7_akukc"]
@@ -86,18 +86,6 @@ fog_density = 0.3675
 fog_aerial_perspective = 0.945
 fog_sky_affect = 0.265
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_aa8w0"]
-size = Vector3(2.5, 1, 10)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djoyc"]
-albedo_color = Color(0.910807, 0.854859, 1, 1)
-albedo_texture = ExtResource("1_20heb")
-uv1_scale = Vector3(2, 10, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_26yu0"]
-material = SubResource("StandardMaterial3D_djoyc")
-size = Vector2(2.275, 10)
-
 [node name="Main" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -121,17 +109,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, -1.31)
 transform = Transform3D(1, 0, 0, 0, 0.995154, -0.0983299, 0, 0.0983299, 0.995154, 0, 2.894, -7.55931)
 SPOT_SCENE = ExtResource("2_imn7o")
 
-[node name="Platform" type="StaticBody3D" parent="World"]
+[node name="Platform" parent="World" instance=ExtResource("5_mfm77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, -6.2)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Platform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -3.025)
-shape = SubResource("BoxShape3D_aa8w0")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Platform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
-mesh = SubResource("PlaneMesh_26yu0")
-skeleton = NodePath("../..")
 
 [node name="PrespawnedCakes" type="Node3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0137436, 0, -5.00599)
