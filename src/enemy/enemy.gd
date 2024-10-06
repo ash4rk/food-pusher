@@ -4,7 +4,7 @@ extends StaticBody3D
 const MAX_HEALTH: int = 5
 
 @onready var anim_player: AnimationPlayer = $CharacterMesh/AnimationPlayer
-@onready var fruit_detector: Area3D = $CoinDetector
+@onready var food_detector: Area3D = $FoodDetector
 
 var health = MAX_HEALTH :
 	set(new_value):
@@ -17,13 +17,12 @@ var health = MAX_HEALTH :
 
 func _ready() -> void:
 	anim_player.animation_set_next("emote-no", "idle")
-
 	anim_player.play("idle", -1, 0.65)
 	anim_player.animation_finished.connect(_anim_sequences)
-	fruit_detector.body_entered.connect(_on_body_entered)
+	food_detector.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node3D):
-	if body.is_in_group("fruits"):
+	if body.is_in_group("foods"):
 		self.health -= 1
  
 func _anim_sequences(anim_name: String):

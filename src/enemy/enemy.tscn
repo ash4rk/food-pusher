@@ -18,8 +18,8 @@ script = ExtResource("1_c0lx3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00143431, 0.320435, -0.00863077)
 shape = SubResource("BoxShape3D_wc3ru")
 
-[node name="CoinDetector" type="Area3D" parent="."]
+[node name="FoodDetector" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CoinDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FoodDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, 0.334229, 0.001297)
 shape = SubResource("BoxShape3D_q013l")

@@ -1,7 +1,7 @@
 extends Node3D
 class_name Thrower
-# TODO: Choose random fruit from src/fruits/*.tscn
-@export var FRUIT_SCENE: PackedScene
+# TODO: Choose random food from src/foods/*.tscn
+@export var food_SCENE: PackedScene
 @export var Z_THROW_VEC_LENGTH: float = 12.4
 @export var Y_THROW_VEC_LENGTH: float = 1.75
 @export var MOVEMENT_APLITUDE: float = 1.0
@@ -25,17 +25,17 @@ func _input(event: InputEvent) -> void:
 		throw()
 
 func throw():
-	var fruit = _create_fruit()
+	var food = _create_food()
 	var z_comp = -moving_holder.basis.z * Z_THROW_VEC_LENGTH
 	var y_comp = moving_holder.basis.y * Y_THROW_VEC_LENGTH
 	var throw_vec: Vector3 = z_comp + y_comp
-	fruit.freeze = false
-	fruit.mass = mass
-	fruit.gravity_scale = gravity_scale
-	fruit.apply_impulse(throw_vec)
+	food.freeze = false
+	food.mass = mass
+	food.gravity_scale = gravity_scale
+	food.apply_impulse(throw_vec)
 
-func _create_fruit():
-	var instance = FRUIT_SCENE.instantiate()
+func _create_food():
+	var instance = food_SCENE.instantiate()
 	instance.position = moving_holder.position
 	self.add_child(instance)
 	return instance
