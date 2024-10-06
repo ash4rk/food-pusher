@@ -30,6 +30,7 @@ folder_colors={
 "res://assets/models/not_yet_used/": "gray",
 "res://assets/models/not_yet_used/kenney_mini-arcade/": "gray",
 "res://assets/models/not_yet_used/kenney_tower-defense-kit/": "gray",
+"res://assets/shaders/": "teal",
 "res://assets/textures/": "green",
 "res://assets/textures/kenney_prototype-textures/": "green",
 "res://assets/textures/kenney_ui-pack/": "green",
@@ -49,8 +50,3 @@ avoidance/layer_2="Food Holder Layer"
 
 3d/default_gravity=2.695
 3d/default_linear_damp=0.7
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

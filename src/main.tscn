@@ -1,24 +1,90 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=25 format=3 uid="uid://bfrudbi127ate"]
 
 [ext_resource type="Texture2D" uid="uid://btcqrnx48yq4g" path="res://assets/textures/kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_20heb"]
+[ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_va7wq"]
 [ext_resource type="PackedScene" uid="uid://bjsv7e25n3e53" path="res://src/enemy/enemy.tscn" id="2_imn7o"]
 [ext_resource type="PackedScene" uid="uid://qxsxu2ni1ihl" path="res://src/environment/carousel.tscn" id="4_i5ptg"]
 [ext_resource type="PackedScene" uid="uid://lwdyes1obava" path="res://src/thrower/thrower.tscn" id="5_6fglj"]
 [ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/valuables/foods/cake.tscn" id="6_piesm"]
 [ext_resource type="Script" path="res://src/debug/debug.gd" id="7_1x3la"]
+[ext_resource type="PackedScene" uid="uid://oecb6yc22ei5" path="res://src/environment/water_plane.tscn" id="7_akukc"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p1y2"]
-sky_top_color = Color(0.140823, 0.000251531, 0.268778, 1)
-sky_horizon_color = Color(0.589578, 0.0039989, 0.964162, 1)
-sky_curve = 0.109807
-ground_bottom_color = Color(0.622218, 0.657828, 1, 1)
+[sub_resource type="Gradient" id="Gradient_e2e57"]
+offsets = PackedFloat32Array(0.350554, 0.678967)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uk182"]
+gradient = SubResource("Gradient_e2e57")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_iuql0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113712, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.693809), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k7swe"]
+texture_mode = 1
+curve = SubResource("Curve_iuql0")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nei21"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cd4tr"]
+seamless = true
+noise = SubResource("FastNoiseLite_nei21")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rwysi"]
+fractal_octaves = 10
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xquq7"]
+seamless = true
+noise = SubResource("FastNoiseLite_rwysi")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y05ih"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fsxh2"]
+seamless = true
+noise = SubResource("FastNoiseLite_y05ih")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67415"]
+shader = ExtResource("1_va7wq")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.03
+shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_shadow_intensity = 3.5
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_xquq7")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_cd4tr")
+shader_parameter/cloud_curves = SubResource("CurveTexture_k7swe")
+shader_parameter/high_clouds_density = 0.2
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_fsxh2")
+shader_parameter/top_color = Color(0.34902, 0.588235, 1, 1)
+shader_parameter/bottom_color = Color(0, 0.329412, 0.968627, 1)
+shader_parameter/sun_scatter = Color(0.298039, 0.298039, 0.298039, 1)
+shader_parameter/astro_tint = Color(0.905882, 0.788235, 0.627451, 1)
+shader_parameter/astro_scale = 9.0
+shader_parameter/astro_intensity = 3.0
+shader_parameter/astro_sampler = SubResource("GradientTexture2D_uk182")
+shader_parameter/stars_intensity = 0.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = null
 
 [sub_resource type="Sky" id="Sky_rbj7k"]
-sky_material = SubResource("ProceduralSkyMaterial_5p1y2")
+sky_material = SubResource("ShaderMaterial_67415")
 
 [sub_resource type="Environment" id="Environment_a3w2l"]
 background_mode = 2
 sky = SubResource("Sky_rbj7k")
+ambient_light_source = 2
+ambient_light_color = Color(0.412636, 0.302605, 0.280617, 1)
+tonemap_mode = 2
+ssao_radius = 6.45
+glow_intensity = 1.65
+fog_mode = 1
+fog_density = 0.3675
+fog_aerial_perspective = 0.945
+fog_sky_affect = 0.265
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aa8w0"]
 size = Vector3(2.5, 1, 10)
@@ -40,11 +106,16 @@ environment = SubResource("Environment_a3w2l")
 [node name="World" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 0.924106, 0.382135, 0, -0.382135, 0.924106, 0, 3.92015, 0)
+transform = Transform3D(0.966591, 0.0979499, -0.236869, -3.11449e-08, 0.924106, 0.382136, 0.256322, -0.369369, 0.893233, 0, 3.92015, 0)
+light_color = Color(0.779453, 0.912839, 0.994496, 1)
+shadow_enabled = true
 
 [node name="MainCamera" type="Camera3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 0.980271, 0.197657, 0, -0.197657, 0.980271, 0, 3.197, 0)
 far = 400.0
+
+[node name="Thrower" parent="World" instance=ExtResource("5_6fglj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, -1.31)
 
 [node name="Carousel" parent="World" instance=ExtResource("4_i5ptg")]
 transform = Transform3D(1, 0, 0, 0, 0.995154, -0.0983299, 0, 0.0983299, 0.995154, 0, 2.894, -7.55931)
@@ -61,9 +132,6 @@ shape = SubResource("BoxShape3D_aa8w0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 mesh = SubResource("PlaneMesh_26yu0")
 skeleton = NodePath("../..")
-
-[node name="Thrower" parent="World" instance=ExtResource("5_6fglj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, -1.31)
 
 [node name="PrespawnedCakes" type="Node3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0137436, 0, -5.00599)
@@ -172,6 +240,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.973488, -0.075, -0.287352)
 
 [node name="Cake80" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.973488, -0.075, -0.607352)
+
+[node name="WaterPlane" parent="World" instance=ExtResource("7_akukc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -100)
+skeleton = NodePath("../..")
 
 [node name="Debug" type="Node" parent="."]
 script = ExtResource("7_1x3la")
