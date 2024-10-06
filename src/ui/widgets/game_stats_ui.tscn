@@ -34,6 +34,33 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 4
 
+[sub_resource type="Animation" id="Animation_bwu7m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/VBox/PanelContainer:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/VBox/PanelContainer/Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ec1vx"]
 resource_name = "color_loop"
 length = 5.0
@@ -62,33 +89,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(0.890904, 0.00010377, 0.297062, 1), Color(2.02149e-06, 0.535263, 0.660011, 1), Color(0.839316, 2.75308e-05, 0.597907, 1), Color(0.254278, 0.33983, 1, 1), Color(0.152941, 1, 0, 1), Color(0.890904, 0.000103772, 0.297062, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_bwu7m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/VBox/PanelContainer:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel/VBox/PanelContainer/Label:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14jdd"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=23 format=3 uid="uid://bfrudbi127ate"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_8n3pa"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_va7wq"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://qxsxu2ni1ihl" path="res://src/environment/carousel.tscn" id="4_i5ptg"]
 [ext_resource type="PackedScene" uid="uid://lwdyes1obava" path="res://src/thrower/thrower.tscn" id="5_6fglj"]
 [ext_resource type="PackedScene" uid="uid://b41s0se6u3mlm" path="res://src/environment/platform.tscn" id="5_mfm77"]
-[ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/valuables/foods/cake.tscn" id="6_piesm"]
 [ext_resource type="Script" path="res://src/debug/debug.gd" id="7_1x3la"]
 [ext_resource type="PackedScene" uid="uid://duhjuei23ge2p" path="res://src/environment/water/water.tscn" id="7_35qej"]
 [ext_resource type="PackedScene" uid="uid://cnounborj62l5" path="res://src/ui/widgets/game_stats_ui.tscn" id="11_n2lx6"]
@@ -117,151 +116,8 @@ transform = Transform3D(1, 0, 0, 0, 0.995154, -0.0983299, 0, 0.0983299, 0.995154
 SPOT_SCENE = ExtResource("2_imn7o")
 metadata/_edit_lock_ = true
 
-[node name="PrespawnedCakes" type="Node3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0137436, 0, -5.00599)
-metadata/_edit_lock_ = true
-
-[node name="Cake46" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013488, -0.075, 0.672649)
-freeze = false
-
-[node name="Cake47" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013488, -0.075, 0.352648)
-freeze = false
-
-[node name="Cake48" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013488, -0.075, 0.0326483)
-freeze = false
-
-[node name="Cake49" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013488, -0.075, -0.287352)
-freeze = false
-
-[node name="Cake50" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013488, -0.075, -0.607352)
-freeze = false
-
-[node name="Cake51" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306512, -0.075, 0.672649)
-freeze = false
-
-[node name="Cake52" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306512, -0.075, 0.352648)
-freeze = false
-
-[node name="Cake53" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306512, -0.075, 0.0326483)
-freeze = false
-
-[node name="Cake54" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306512, -0.075, -0.287352)
-freeze = false
-
-[node name="Cake55" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306512, -0.075, -0.607352)
-freeze = false
-
-[node name="Cake56" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626512, -0.075, 0.672649)
-freeze = false
-
-[node name="Cake57" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626512, -0.075, 0.352648)
-freeze = false
-
-[node name="Cake58" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626512, -0.075, 0.0326483)
-freeze = false
-
-[node name="Cake59" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626512, -0.075, -0.287352)
-freeze = false
-
-[node name="Cake60" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626512, -0.075, -0.607352)
-freeze = false
-
-[node name="Cake61" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946512, -0.075, 0.672649)
-freeze = false
-
-[node name="Cake62" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946512, -0.075, 0.352648)
-freeze = false
-
-[node name="Cake63" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946512, -0.075, 0.0326483)
-freeze = false
-
-[node name="Cake64" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946512, -0.075, -0.287352)
-freeze = false
-
-[node name="Cake65" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946512, -0.075, -0.607352)
-freeze = false
-
-[node name="Cake66" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333488, -0.075, 0.672649)
-freeze = false
-
-[node name="Cake67" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333488, -0.075, 0.352648)
-freeze = false
-
-[node name="Cake68" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333488, -0.075, 0.0326483)
-freeze = false
-
-[node name="Cake69" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333488, -0.075, -0.287352)
-freeze = false
-
-[node name="Cake70" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333488, -0.075, -0.607352)
-freeze = false
-
-[node name="Cake71" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653488, -0.075, 0.672649)
-freeze = false
-
-[node name="Cake72" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653488, -0.075, 0.352648)
-freeze = false
-
-[node name="Cake73" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653488, -0.075, 0.0326483)
-freeze = false
-
-[node name="Cake74" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653488, -0.075, -0.287352)
-freeze = false
-
-[node name="Cake75" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653488, -0.075, -0.607352)
-freeze = false
-
-[node name="Cake76" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.973488, -0.075, 0.672649)
-freeze = false
-
-[node name="Cake77" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.973488, -0.075, 0.352648)
-freeze = false
-
-[node name="Cake78" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.973488, -0.075, 0.0326483)
-freeze = false
-
-[node name="Cake79" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.973488, -0.075, -0.287352)
-freeze = false
-
-[node name="Cake80" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.973488, -0.075, -0.607352)
-freeze = false
-
 [node name="Water" parent="World" instance=ExtResource("7_35qej")]
+metadata/_edit_lock_ = true
 
 [node name="Platform" parent="World" instance=ExtResource("5_mfm77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, -6.2)

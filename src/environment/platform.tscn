@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b41s0se6u3mlm"]
+[gd_scene load_steps=5 format=3 uid="uid://b41s0se6u3mlm"]
 
+[ext_resource type="Script" path="res://src/environment/platform.gd" id="1_7vmp1"]
 [ext_resource type="PackedScene" uid="uid://c2yttayanaeoi" path="res://src/environment/pusher.tscn" id="2_l0fy8"]
 [ext_resource type="PackedScene" uid="uid://cgivne2jq8fod" path="res://assets/models/kenney_platform/platform.glb" id="4_6fuq5"]
 
@@ -7,6 +8,7 @@
 size = Vector3(2.2677, 0.304626, 8.70898)
 
 [node name="Platform" type="StaticBody3D"]
+script = ExtResource("1_7vmp1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00640869, -0.152313, -2.37949)
@@ -75,3 +77,6 @@ transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624,
 transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, -6.14156)
 
 [node name="Pusher" parent="." instance=ExtResource("2_l0fy8")]
+
+[node name="PregeneratedFoods" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.942412, 0, 1.74123)

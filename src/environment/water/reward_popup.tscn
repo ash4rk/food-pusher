@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2i7f4d7u3am4"]
+
+[ext_resource type="FontFile" uid="uid://bgu8qc0aapy2h" path="res://assets/textures/kenney_ui-pack/Font/Kenney Future.ttf" id="1_gfbgq"]
+[ext_resource type="Script" path="res://src/environment/water/reward_popup.gd" id="2_eckbi"]
+
+[node name="RewardPopup" type="Label3D"]
+billboard = 2
+modulate = Color(1, 0.8, 0, 1)
+text = "+1"
+font = ExtResource("1_gfbgq")
+script = ExtResource("2_eckbi")

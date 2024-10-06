@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4qi84tj3vjxm"]
+[gd_scene load_steps=4 format=3 uid="uid://b4qi84tj3vjxm"]
 
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_svoot"]
 [ext_resource type="PackedScene" uid="uid://r588q4aok211" path="res://assets/models/kenney_food-kit/cake.glb" id="2_133l7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8rvpy"]
@@ -8,6 +9,8 @@ radius = 0.159967
 
 [node name="Cake" type="RigidBody3D" groups=["foods"]]
 freeze = true
+script = ExtResource("1_svoot")
+type = "Food (aka coin)"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0602043, 0)
