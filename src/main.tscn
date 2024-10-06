@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=24 format=3 uid="uid://bfrudbi127ate"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_8n3pa"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_va7wq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b41s0se6u3mlm" path="res://src/environment/platform.tscn" id="5_mfm77"]
 [ext_resource type="Script" path="res://src/debug/debug.gd" id="7_1x3la"]
 [ext_resource type="PackedScene" uid="uid://duhjuei23ge2p" path="res://src/environment/water/water.tscn" id="7_35qej"]
+[ext_resource type="PackedScene" uid="uid://bnmlnik2hgf2b" path="res://src/ui/widgets/no_throws_alert_ui.tscn" id="10_t0k5c"]
 [ext_resource type="PackedScene" uid="uid://cnounborj62l5" path="res://src/ui/widgets/game_stats_ui.tscn" id="11_n2lx6"]
 
 [sub_resource type="Gradient" id="Gradient_e2e57"]
@@ -133,3 +134,6 @@ far = 400.0
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="GameStatsUI" parent="UI" instance=ExtResource("11_n2lx6")]
+
+[node name="NoThrowsAlertUI" parent="UI" instance=ExtResource("10_t0k5c")]
+visible = false
