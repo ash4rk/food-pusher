@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://ct2vfaayhjrh4"]
+
+[ext_resource type="Texture2D" uid="uid://cgm6pksp2la5s" path="res://assets/textures/water_circles_mask.png" id="1_53aqk"]
+[ext_resource type="Script" path="res://src/environment/water_splash.gd" id="2_iycft"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bll0p"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.77711, 0.84613, 0.940559, 1)
+albedo_texture = ExtResource("1_53aqk")
+uv1_scale = Vector3(0.27, 0.345, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8sew6"]
+material = SubResource("StandardMaterial3D_bll0p")
+
+[sub_resource type="Curve" id="Curve_uru0a"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.351682, 0.701604), 1.5334, 1.5334, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evue5"]
+transparency = 1
+blend_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_02yvx"]
+material = SubResource("StandardMaterial3D_evue5")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Curve" id="Curve_djg3v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.119266, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="WaterSplash" type="CPUParticles3D"]
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 0.5
+mesh = SubResource("PlaneMesh_8sew6")
+gravity = Vector3(0, 0, 0)
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_uru0a")
+script = ExtResource("2_iycft")
+
+[node name="Droplets" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.74
+mesh = SubResource("QuadMesh_02yvx")
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_djg3v")
