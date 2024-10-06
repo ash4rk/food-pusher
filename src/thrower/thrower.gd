@@ -1,7 +1,7 @@
 extends Node3D
 class_name Thrower
 
-#region: EventBus Callbacks
+#region: --- Event Bus Callbacks ---
 func _update_remaining_throws(new_value):
 	remaining_throws = new_value
 #endregion
