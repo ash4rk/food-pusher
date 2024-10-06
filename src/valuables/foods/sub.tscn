@@ -7,7 +7,7 @@
 radius = 0.0594785
 height = 0.309661
 
-[node name="Sub" type="RigidBody3D"]
+[node name="Sub" type="RigidBody3D" groups=["foods"]]
 script = ExtResource("1_ahgxg")
 type = "Food (aka coin)"
 
