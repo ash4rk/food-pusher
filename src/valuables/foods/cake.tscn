@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4qi84tj3vjxm"]
 
-[ext_resource type="Script" path="res://src/valuables/foods/base_food.gd" id="1_cb0pa"]
+[ext_resource type="Script" path="res://src/valuables/base_food.gd" id="1_cb0pa"]
 [ext_resource type="PackedScene" uid="uid://r588q4aok211" path="res://assets/models/kenney_food-kit/cake.glb" id="2_133l7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rv5tb"]
