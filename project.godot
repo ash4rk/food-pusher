@@ -37,7 +37,9 @@ folder_colors={
 "res://data/": "yellow",
 "res://src/": "purple",
 "res://src/debug/": "gray",
-"res://src/static/": "purple"
+"res://src/static/": "purple",
+"res://src/ui/": "purple",
+"res://src/ui/widgets/": "teal"
 }
 
 [layer_names]

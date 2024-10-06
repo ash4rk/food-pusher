@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=27 format=3 uid="uid://bfrudbi127ate"]
 
+[ext_resource type="Script" path="res://src/main.gd" id="1_8n3pa"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_va7wq"]
 [ext_resource type="PackedScene" uid="uid://bjsv7e25n3e53" path="res://src/enemy/enemy.tscn" id="2_imn7o"]
 [ext_resource type="PackedScene" uid="uid://qxsxu2ni1ihl" path="res://src/environment/carousel.tscn" id="4_i5ptg"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://oecb6yc22ei5" path="res://src/environment/water_plane.tscn" id="7_akukc"]
 [ext_resource type="PackedScene" uid="uid://ct2vfaayhjrh4" path="res://src/environment/water_splash.tscn" id="8_ljrhq"]
 [ext_resource type="Script" path="res://src/environment/object_remover.gd" id="9_4o0cq"]
+[ext_resource type="PackedScene" uid="uid://cnounborj62l5" path="res://src/ui/widgets/game_stats_ui.tscn" id="11_n2lx6"]
 
 [sub_resource type="Gradient" id="Gradient_e2e57"]
 offsets = PackedFloat32Array(0.350554, 0.678967)
@@ -92,33 +94,37 @@ fog_sky_affect = 0.265
 size = Vector3(30, 5.34424, 25)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_8n3pa")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a3w2l")
 
 [node name="World" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
 transform = Transform3D(0.966591, 0.0979499, -0.236869, -3.11449e-08, 0.924106, 0.382136, 0.256322, -0.369369, 0.893233, 0, 3.92015, 0)
 light_color = Color(0.779453, 0.912839, 0.994496, 1)
 shadow_enabled = true
+metadata/_edit_lock_ = true
 
 [node name="MainCamera" type="Camera3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 0.980271, 0.197657, 0, -0.197657, 0.980271, 0, 3.197, 0)
 far = 400.0
+metadata/_edit_lock_ = true
 
 [node name="Thrower" parent="World" instance=ExtResource("5_6fglj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, -1.31)
+metadata/_edit_lock_ = true
 
 [node name="Carousel" parent="World" instance=ExtResource("4_i5ptg")]
 transform = Transform3D(1, 0, 0, 0, 0.995154, -0.0983299, 0, 0.0983299, 0.995154, 0, 2.894, -7.55931)
 SPOT_SCENE = ExtResource("2_imn7o")
-
-[node name="Platform" parent="World" instance=ExtResource("5_mfm77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, -6.2)
+metadata/_edit_lock_ = true
 
 [node name="PrespawnedCakes" type="Node3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0137436, 0, -5.00599)
+metadata/_edit_lock_ = true
 
 [node name="Cake46" parent="World/PrespawnedCakes" instance=ExtResource("6_piesm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013488, -0.075, 0.672649)
@@ -260,18 +266,25 @@ freeze = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.973488, -0.075, -0.607352)
 freeze = false
 
+[node name="Platform" parent="World" instance=ExtResource("5_mfm77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, -6.2)
+metadata/_edit_lock_ = true
+
 [node name="WaterPlane" parent="World" instance=ExtResource("7_akukc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.762894, -100)
 skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
 
 [node name="WaterSplash" parent="World" instance=ExtResource("8_ljrhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76045, 0.379802, -4.35258)
 visible = false
+metadata/_edit_lock_ = true
 
 [node name="ObjectRemover" type="Area3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -10)
 script = ExtResource("9_4o0cq")
 WATER_SPLASH_SCENE = ExtResource("8_ljrhq")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/ObjectRemover"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327881, -2.2)
@@ -283,5 +296,9 @@ script = ExtResource("7_1x3la")
 [node name="DebugCamera" type="Camera3D" parent="Debug"]
 transform = Transform3D(0.670129, -0.264787, 0.693408, 4.86004e-10, 0.934204, 0.356738, -0.742245, -0.239061, 0.626037, 3.939, 3.679, -3.166)
 far = 400.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameStatsUI" parent="UI" instance=ExtResource("11_n2lx6")]
 
 [editable path="World/WaterSplash"]
