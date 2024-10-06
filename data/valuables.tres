@@ -1,12 +1,28 @@
-[gd_resource type="Resource" script_class="ValuablesData" load_steps=2 format=3 uid="uid://8omuu3pyu87d"]
+[gd_resource type="Resource" script_class="ValuablesData" load_steps=2 format=3 uid="uid://bl5nqsooptepm"]
 
 [ext_resource type="Script" path="res://data/prototypes/valuables.gd" id="1_4x3k3"]
 
 [resource]
 script = ExtResource("1_4x3k3")
 drops = {
-"Box": 2,
-"Crate": 5,
-"Food (aka coin)": 1,
-"GoldenCrate": 10
+"Box": {
+"drop_chance": 1.0,
+"packed_scene": "res://src/valuables/boxes/box.tscn",
+"value": 2
+},
+"Crate": {
+"drop_chance": 0.5,
+"packed_scene": "res://src/valuables/boxes/crate.tscn",
+"value": 5
+},
+"Food (aka coin)": {
+"drop_chance": 0,
+"packed_scene": "res://src/valuables/foods/cake.tscn",
+"value": 1
+},
+"GoldenCrate": {
+"drop_chance": 0.3,
+"packed_scene": "res://src/valuables/boxes/golden_crate.tscn",
+"value": 10
+}
 }
