@@ -44,16 +44,14 @@ func start_moving_loop():
 	tween.tween_property(moving_holder, "position", Vector3(-MOVEMENT_APLITUDE, 0, 0), 1.5)
 	tween.tween_property(moving_holder, "position", Vector3(MOVEMENT_APLITUDE, 0, 0), 1.5)
 
-# TODO: resolve warning
 func throw(food_to_throw: RigidBody3D):
-	_food_in_holder.reparent(get_parent())
+	food_to_throw.reparent(get_parent())
 	var z_comp = -self.basis.z * Z_THROW_VEC_LENGTH
 	var y_comp = self.basis.y * Y_THROW_VEC_LENGTH
 	var throw_vec: Vector3 = z_comp + y_comp
-	_food_in_holder.freeze = false
-	_food_in_holder.apply_impulse(throw_vec)
-	var thrown = _food_in_holder
-	thrown.collision_layer = 1
+	food_to_throw.freeze = false
+	food_to_throw.collision_layer = 1
+	food_to_throw.apply_impulse(throw_vec)
 
 func _create_random_food():
 	randomize()
