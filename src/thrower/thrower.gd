@@ -1,6 +1,11 @@
 extends Node3D
 class_name Thrower
 
+#region: EventBus Callbacks
+func _update_remaining_throws(new_value):
+	remaining_throws = new_value
+#endregion
+
 const HOLDER_ROTATION_SPEED = 5
 
 @export var FOOD_DIR_PATH: String = "res://src/valuables/foods/"
@@ -13,25 +18,32 @@ const HOLDER_ROTATION_SPEED = 5
 
 var _food_scenes: Array = []
 var _food_in_holder: RigidBody3D = null
+var remaining_throws: int = 0
 
 func _ready() -> void:
 	start_moving_loop()
 	_food_scenes = _load_food_scenes(FOOD_DIR_PATH)
 	_food_in_holder = _create_random_food()
+	EventBus.on_remaining_throws_changed.connect(_update_remaining_throws)
 
 func _process(delta: float) -> void:
 	moving_holder.rotate_y(delta * HOLDER_ROTATION_SPEED)
+
+func _input(event: InputEvent) -> void:
+	# TODO: Declare action name
+	if event.is_pressed() and Input.is_key_pressed(KEY_SPACE):
+		if remaining_throws > 0:
+			throw(_food_in_holder)
+			EventBus.emit_signal("on_remaining_throws_changed", remaining_throws - 1)
+			_food_in_holder = _create_random_food()
+		else:
+			print("There are no throws left")
 
 func start_moving_loop():
 	moving_holder.position.x = MOVEMENT_APLITUDE
 	tween.set_loops().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(moving_holder, "position", Vector3(-MOVEMENT_APLITUDE, 0, 0), 1.5)
 	tween.tween_property(moving_holder, "position", Vector3(MOVEMENT_APLITUDE, 0, 0), 1.5)
-
-func _input(event: InputEvent) -> void:
-	if event.is_pressed() and Input.is_key_pressed(KEY_SPACE):
-		throw(_food_in_holder)
-		_food_in_holder = _create_random_food()
 
 func throw(food_to_throw: RigidBody3D):
 	_food_in_holder.reparent(get_parent())

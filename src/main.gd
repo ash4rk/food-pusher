@@ -1,7 +1,4 @@
 extends Node
 
 func _ready() -> void:
-	pass
-
-func _process(delta: float) -> void:
-	pass
+	EventBus.emit_signal("on_remaining_throws_changed", 100)
