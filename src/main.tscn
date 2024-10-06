@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bjsv7e25n3e53" path="res://src/enemy/enemy.tscn" id="2_imn7o"]
 [ext_resource type="PackedScene" uid="uid://qxsxu2ni1ihl" path="res://src/environment/carousel.tscn" id="4_i5ptg"]
 [ext_resource type="PackedScene" uid="uid://lwdyes1obava" path="res://src/thrower/thrower.tscn" id="5_6fglj"]
-[ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/food/cake.tscn" id="6_piesm"]
+[ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/valuables/foods/cake.tscn" id="6_piesm"]
 [ext_resource type="Script" path="res://src/debug/debug.gd" id="7_1x3la"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p1y2"]

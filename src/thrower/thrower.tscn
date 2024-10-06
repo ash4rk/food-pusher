@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://lwdyes1obava"]
 
 [ext_resource type="Script" path="res://src/thrower/thrower.gd" id="1_fslfu"]
-[ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/food/cake.tscn" id="2_2yia8"]
+[ext_resource type="PackedScene" uid="uid://b4qi84tj3vjxm" path="res://src/valuables/foods/cake.tscn" id="2_2yia8"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_7ujxb"]
 radius = 0.08

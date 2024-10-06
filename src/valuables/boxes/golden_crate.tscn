@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq8p666xkffbw"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_1bjl1"]
+[ext_resource type="PackedScene" uid="uid://bec64ooi4vlmm" path="res://assets/models/kenney_boxes/crate-item-strong.glb" id="3_rce35"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1q70"]
+size = Vector3(0.31, 0.31, 0.31)
+
+[node name="GoldenCrate" type="RigidBody3D"]
+script = ExtResource("1_1bjl1")
+type = "GoldenCrate"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00105667, 0.15736, 0)
+shape = SubResource("BoxShape3D_b1q70")
+
+[node name="GoldenCrateMesh" parent="." instance=ExtResource("3_rce35")]
+transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, 0, 0, 0)

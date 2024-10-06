@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bclf6b08p5pag"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_0ivrv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iswem"]
+absorbent = true
+
+[node name="BaseValuable" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_iswem")
+linear_damp = 0.72
+script = ExtResource("1_0ivrv")

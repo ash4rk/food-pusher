@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends Valuable
 
 # TODO: Abstract food.tscn
 # collision_shape and mesh difference only

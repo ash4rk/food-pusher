@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ValuablesData" load_steps=2 format=3 uid="uid://8omuu3pyu87d"]
+
+[ext_resource type="Script" path="res://data/prototypes/valuables.gd" id="1_4x3k3"]
+
+[resource]
+script = ExtResource("1_4x3k3")
+drops = {
+"Box": 2,
+"Crate": 5,
+"Food (aka coin)": 1,
+"GoldenCrate": 10
+}

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpb4rwiti7tic"]
+
+[ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_8ihom"]
+[ext_resource type="PackedScene" uid="uid://db36yp13orayc" path="res://assets/models/kenney_boxes/wood-crate.glb" id="3_k2q3w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1q70"]
+size = Vector3(0.31, 0.31, 0.31)
+
+[node name="Crate" type="RigidBody3D"]
+script = ExtResource("1_8ihom")
+type = "Crate"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00105667, 0.15736, 0)
+shape = SubResource("BoxShape3D_b1q70")
+
+[node name="WoodCrateMesh" parent="." instance=ExtResource("3_k2q3w")]
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, 0, 0)
