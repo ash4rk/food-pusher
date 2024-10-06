@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b41s0se6u3mlm"]
+[gd_scene load_steps=4 format=3 uid="uid://b41s0se6u3mlm"]
 
+[ext_resource type="PackedScene" uid="uid://c2yttayanaeoi" path="res://src/environment/pusher.tscn" id="2_l0fy8"]
 [ext_resource type="PackedScene" uid="uid://cgivne2jq8fod" path="res://assets/models/kenney_platform/platform.glb" id="4_6fuq5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aa8w0"]
@@ -72,3 +73,5 @@ transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624,
 
 [node name="platform19" parent="PlatformMeshes/Row2" instance=ExtResource("4_6fuq5")]
 transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0.525766, -0.162624, -6.14156)
+
+[node name="Pusher" parent="." instance=ExtResource("2_l0fy8")]
