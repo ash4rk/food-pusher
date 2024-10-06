@@ -1,18 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://lwdyes1obava"]
+[gd_scene load_steps=2 format=3 uid="uid://lwdyes1obava"]
 
 [ext_resource type="Script" path="res://src/thrower/thrower.gd" id="1_fslfu"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_7ujxb"]
-radius = 0.08
-height = 0.16
-
 [node name="Thrower" type="Node3D"]
 script = ExtResource("1_fslfu")
-Z_THROW_VEC_LENGTH = 10.0
-Y_THROW_VEC_LENGTH = 4.58
 
 [node name="MovingHolder" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-
-[node name="DebugSphereMesh" type="MeshInstance3D" parent="MovingHolder"]
-mesh = SubResource("SphereMesh_7ujxb")

@@ -1,22 +1,21 @@
 extends Node3D
 class_name Thrower
 
-# TODO: Choose random food from src/foods/*.tscn
 @export var FOOD_DIR_PATH: String = "res://src/valuables/foods/"
 @export var Z_THROW_VEC_LENGTH: float = 7.05
 @export var Y_THROW_VEC_LENGTH: float = 2.225
 @export var MOVEMENT_APLITUDE: float = 1.0
-# TODO: Get rid of it, change in project settings instead
-#@export var gravity_scale = 0.275
 
 @onready var moving_holder: Node3D = $MovingHolder
 @onready var tween: Tween = get_tree().create_tween()
 
 var _food_scenes: Array = []
+var _food_in_holder: RigidBody3D = null
 
 func _ready() -> void:
 	start_moving_loop()
 	_food_scenes = _load_food_scenes(FOOD_DIR_PATH)
+	_food_in_holder = _create_random_food()
 
 func start_moving_loop():
 	moving_holder.position.x = MOVEMENT_APLITUDE
@@ -26,23 +25,27 @@ func start_moving_loop():
 
 func _input(event: InputEvent) -> void:
 	if event.is_pressed() and Input.is_key_pressed(KEY_SPACE):
-		throw()
+		throw(_food_in_holder)
+		_food_in_holder = _create_random_food()
 
-func throw():
-	var food = _create_random_food()
+func throw(food_to_throw: RigidBody3D):
+	_food_in_holder.reparent(get_parent())
 	var z_comp = -moving_holder.basis.z * Z_THROW_VEC_LENGTH
 	var y_comp = moving_holder.basis.y * Y_THROW_VEC_LENGTH
 	var throw_vec: Vector3 = z_comp + y_comp
-	food.freeze = false
-	#food.gravity_scale = gravity_scale
-	food.apply_impulse(throw_vec)
+	_food_in_holder.freeze = false
+	_food_in_holder.apply_impulse(throw_vec)
+	var thrown = _food_in_holder
+	thrown.collision_layer = 1
 
 func _create_random_food():
 	randomize()
 	var rand_food = _food_scenes[randi() % _food_scenes.size()]
 	var instance = rand_food.instantiate()
-	instance.position = moving_holder.position
-	self.add_child(instance)
+	moving_holder.add_child(instance)
+	instance.freeze = true
+	instance.collision_layer = 2
+	instance.global_position = moving_holder.global_position
 	return instance
 
 # TODO: Log it

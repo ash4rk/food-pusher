@@ -38,6 +38,18 @@ folder_colors={
 "res://src/debug/": "gray"
 }
 
+[layer_names]
+
+3d_physics/layer_1="World Layer"
+3d_physics/layer_2="Food Holder Layer"
+avoidance/layer_1="World Layer"
+avoidance/layer_2="Food Holder Layer"
+
+[physics]
+
+3d/default_gravity=2.695
+3d/default_linear_damp=0.7
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
