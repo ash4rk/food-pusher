@@ -24,6 +24,7 @@ var health = MAX_HEALTH :
 			else:
 				anim_player.play("die")
 				_play_die_audio()
+				print_rich("[color=red]", "died %s" % name)
 		health = max(new_value, 0)
 
 func _ready() -> void:
@@ -66,6 +67,7 @@ func _spawn_box():
 	var enemy_back_vec = -global_transform.basis.z
 	var poke_vec = enemy_back_vec + Vector3.UP
 	drop.apply_central_impulse(poke_vec * BOX_POKE_LENGTH)
+	print_rich("[color=green]", "spawned %s" % drop.name)
 
 func _play_hit_audio():
 	hit_audio_player.pitch_scale = randf_range(0.8, 1.2)

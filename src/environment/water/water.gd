@@ -19,6 +19,7 @@ func _on_rewarded_body_drown(body:Node3D):
 	_spawn_popup(body.global_position, body.value)
 	_play_reward_sound()
 	EventBus.emit_signal("on_drowned_with_reward", body.value)
+	print_rich("[color=purple]", "%s fell with the reward %s" % [body.name, body.value])
 
 func _sink_the_object(object):
 	var splash_instance: CPUParticles3D = WATER_SPLASH_SCENE.instantiate()

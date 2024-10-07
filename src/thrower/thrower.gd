@@ -8,7 +8,7 @@ func _update_remaining_throws(new_value):
 
 const HOLDER_ROTATION_SPEED = 5
 
-@export var FOOD_DIR_PATH: String = "res://src/valuables/foods/"
+@export var FOOD_DIR_PATH: String = "res://src/valuables/foods"
 @export var Z_THROW_VEC_LENGTH: float = 7.05
 @export var Y_THROW_VEC_LENGTH: float = 2.225
 @export var MOVEMENT_APLITUDE: float = 1.0
@@ -63,12 +63,14 @@ func create_random_food():
 	instance.freeze = true
 	instance.collision_layer = 2
 	instance.global_position = moving_holder.global_position
+	print_rich("[color=yellow]", "got random food: %s" % instance.name)
 	return instance
 
-# TODO: Log it
 func _load_food_scenes(food_dir_path: String) -> Array:
 	var res: Array = []
 	var file_paths = Utilities.get_files_by_filter(food_dir_path, ".tscn")
 	for path in file_paths:
 		res.push_back(load(path))
+		print_rich("[color=orange]", "loading food scenes: found %s " % [path])
+	print_rich("[color=orange]", "loaded %s foods" % res.size())
 	return res
