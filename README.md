@@ -1,14 +1,19 @@
 # food-pusher 🍔
 Godot – 4.3 branch
 ## Previews
+
 ### Basic Loop
-![simple_throws](https://github.com/user-attachments/assets/016fbb8e-f3f5-4bd2-9b5f-c8ba918a6ade)
+![simple_throws](https://github.com/user-attachments/assets/ee2b0fcd-506b-4cbd-a93e-43fb5a5fad61)
+
 ### Rewards
-![rewards](https://github.com/user-attachments/assets/427fd2f6-b47b-4ea6-8eab-2c5395dd0d62)
+![rewards](https://github.com/user-attachments/assets/1777a87d-6ccc-4d27-a8e5-49d0d55f0c20)
+
 ### Enemy Respawn
-![respawn_enemies](https://github.com/user-attachments/assets/a40fa366-31d6-48f5-8fbf-ac7e0419d253)
+![respawn_enemies](https://github.com/user-attachments/assets/fca9508a-bc7e-42ce-a369-760412e70709)
+
 ### Food Chaos
-![chaos](https://github.com/user-attachments/assets/e0e41e9d-7e95-4c55-9c4f-2c5320385f06)
+![chaos](https://github.com/user-attachments/assets/685ff377-3da3-4166-a392-3d1373a2c733)
+
 ## Assets
 Most of the asset (models, textures, sfx): https://kenney.nl/
 
