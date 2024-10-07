@@ -9,12 +9,12 @@ extends Node3D
 @onready var enemy_group = $EnemyGroup
 
 func _ready() -> void:
-	gen_enemy_spots(RADIUS, 12, SPOT_SCENE)
+	_gen_enemy_spots(RADIUS, 12, SPOT_SCENE)
 
 func _process(delta: float) -> void:
 	rotate_object_local(Vector3.UP, -ROTATION_SPEED * delta)
 
-func gen_enemy_spots(radius: float, spots_num: int, spot_scene: PackedScene) -> void:
+func _gen_enemy_spots(radius: float, spots_num: int, spot_scene: PackedScene) -> void:
 	var angle_step = 360.0 / spots_num
 	for i in range(spots_num):
 		var angle_radians = deg_to_rad(i * angle_step)
@@ -29,4 +29,4 @@ func gen_enemy_spots(radius: float, spots_num: int, spot_scene: PackedScene) -> 
 func respawn_enemies():
 	for child in enemy_group.get_children():
 		child.queue_free()
-	gen_enemy_spots(RADIUS, 12, SPOT_SCENE)
+	_gen_enemy_spots(RADIUS, 12, SPOT_SCENE)

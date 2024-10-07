@@ -34,6 +34,7 @@ folder_colors={
 "res://assets/models/not_yet_used/": "gray",
 "res://assets/models/not_yet_used/kenney_mini-arcade/": "gray",
 "res://assets/models/not_yet_used/kenney_tower-defense-kit/": "gray",
+"res://assets/sfx/": "pink",
 "res://assets/shaders/": "teal",
 "res://assets/textures/": "green",
 "res://assets/textures/kenney_prototype-textures/": "green",

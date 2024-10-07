@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://duhjuei23ge2p"]
+[gd_scene load_steps=8 format=3 uid="uid://duhjuei23ge2p"]
 
 [ext_resource type="PackedScene" uid="uid://oecb6yc22ei5" path="res://src/environment/water/water_plane.tscn" id="1_epef0"]
 [ext_resource type="Script" path="res://src/environment/water/water.gd" id="3_bxlf4"]
 [ext_resource type="PackedScene" uid="uid://b2i7f4d7u3am4" path="res://src/environment/water/reward_popup.tscn" id="3_yd03a"]
 [ext_resource type="PackedScene" uid="uid://ct2vfaayhjrh4" path="res://src/environment/water/water_splash.tscn" id="4_6bnf8"]
+[ext_resource type="AudioStream" uid="uid://bnea6uywkg4kw" path="res://assets/sfx/kenney_digital-audio/Audio/powerUp8.ogg" id="5_kogp6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a3kxp"]
 size = Vector3(30, 5.34424, 20.1477)
@@ -36,3 +37,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RewardedObjectRemover"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327881, 7.95625)
 shape = SubResource("BoxShape3D_fql8y")
+
+[node name="RewardAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kogp6")
+volume_db = -15.0

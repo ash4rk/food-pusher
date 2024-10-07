@@ -14,16 +14,17 @@ const HOLDER_ROTATION_SPEED = 5
 @export var MOVEMENT_APLITUDE: float = 1.0
 
 @onready var moving_holder: Node3D = $MovingHolder
+@onready var throw_audio_player: AudioStreamPlayer = $ThrowAudioPlayer
 @onready var tween: Tween = get_tree().create_tween()
 
 var _food_scenes: Array = []
-var _food_in_holder: RigidBody3D = null
+var food_in_holder: RigidBody3D = null
 var remaining_throws: int = 0
 
 func _ready() -> void:
-	start_moving_loop()
+	_start_moving_loop()
 	_food_scenes = _load_food_scenes(FOOD_DIR_PATH)
-	_food_in_holder = _create_random_food()
+	food_in_holder = create_random_food()
 	EventBus.on_remaining_throws_changed.connect(_update_remaining_throws)
 
 func _process(delta: float) -> void:
@@ -32,19 +33,20 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("throw"):
 		if remaining_throws > 0:
-			throw(_food_in_holder)
+			throw(food_in_holder)
 			EventBus.emit_signal("on_remaining_throws_changed", remaining_throws - 1)
-			_food_in_holder = _create_random_food()
+			food_in_holder = create_random_food()
 		else:
 			print("There are no throws left")
 
-func start_moving_loop():
+func _start_moving_loop():
 	moving_holder.position.x = MOVEMENT_APLITUDE
 	tween.set_loops().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(moving_holder, "position", Vector3(-MOVEMENT_APLITUDE, 0, 0), 1.5)
 	tween.tween_property(moving_holder, "position", Vector3(MOVEMENT_APLITUDE, 0, 0), 1.5)
 
 func throw(food_to_throw: RigidBody3D):
+	throw_audio_player.play_throw_sound()
 	food_to_throw.reparent(get_parent())
 	var z_comp = -self.basis.z * Z_THROW_VEC_LENGTH
 	var y_comp = self.basis.y * Y_THROW_VEC_LENGTH
@@ -53,7 +55,7 @@ func throw(food_to_throw: RigidBody3D):
 	food_to_throw.collision_layer = 1
 	food_to_throw.apply_impulse(throw_vec)
 
-func _create_random_food():
+func create_random_food():
 	randomize()
 	var rand_food = _food_scenes[randi() % _food_scenes.size()]
 	var instance = rand_food.instantiate()

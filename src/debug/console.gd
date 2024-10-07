@@ -19,7 +19,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _is_machine_gun_enabled:
 		thrower.throw(thrower._food_in_holder)
-		thrower._food_in_holder = thrower._create_random_food()
+		thrower.food_in_holder = thrower.create_random_food()
 
 func _input(event: InputEvent) -> void:
 	if event.is_pressed() and Input.is_physical_key_pressed(KEY_W):

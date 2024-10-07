@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cnounborj62l5"]
 
 [ext_resource type="Theme" uid="uid://cgsclu2i80ogv" path="res://assets/main_theme.tres" id="1_5nxqo"]
-[ext_resource type="FontFile" uid="uid://bgu8qc0aapy2h" path="res://assets/textures/kenney_ui-pack/Font/Kenney Future.ttf" id="1_broqj"]
+[ext_resource type="FontFile" uid="uid://bgu8qc0aapy2h" path="res://assets/Kenney Future.ttf" id="1_broqj"]
 [ext_resource type="Script" path="res://src/ui/widgets/game_stats_ui.gd" id="2_mb136"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dmrx"]

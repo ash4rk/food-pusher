@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=26 format=3 uid="uid://bfrudbi127ate"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_8n3pa"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_va7wq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bnmlnik2hgf2b" path="res://src/ui/widgets/no_throws_alert_ui.tscn" id="10_t0k5c"]
 [ext_resource type="PackedScene" uid="uid://cnounborj62l5" path="res://src/ui/widgets/game_stats_ui.tscn" id="11_n2lx6"]
 [ext_resource type="PackedScene" uid="uid://cb5ijb1qxbmd6" path="res://src/debug/console.tscn" id="11_oawom"]
+[ext_resource type="AudioStream" uid="uid://c8t0shnlmfn6q" path="res://assets/sfx/waves_loop.mp3" id="12_ih777"]
 
 [sub_resource type="Gradient" id="Gradient_e2e57"]
 offsets = PackedFloat32Array(0.350554, 0.678967)
@@ -142,3 +143,8 @@ far = 400.0
 script = ExtResource("10_br5kq")
 
 [node name="Console" parent="UI/Debug" instance=ExtResource("11_oawom")]
+
+[node name="WavesAudioStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ih777")
+volume_db = -8.0
+autoplay = true

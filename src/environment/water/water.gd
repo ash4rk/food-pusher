@@ -5,6 +5,7 @@ extends Node3D
 
 @onready var object_remover: Area3D = $ObjectRemover
 @onready var rewarded_object_remover: Area3D = $RewardedObjectRemover
+@onready var reward_audio_player: AudioStreamPlayer = $RewardAudioPlayer
 
 func _ready() -> void:
 	object_remover.body_entered.connect(_on_body_drown)
@@ -16,6 +17,7 @@ func _on_body_drown(body: Node3D):
 func _on_rewarded_body_drown(body:Node3D):
 	_sink_the_object(body)
 	_spawn_popup(body.global_position, body.value)
+	_play_reward_sound()
 	EventBus.emit_signal("on_drowned_with_reward", body.value)
 
 func _sink_the_object(object):
@@ -32,4 +34,7 @@ func _spawn_popup(pos: Vector3, value_to_show: int):
 	get_parent().add_child(instance)
 	instance.text = "+%s" % str(value_to_show)
 	instance.global_position = pos
-	
+
+func _play_reward_sound():
+	reward_audio_player.pitch_scale = randf_range(0.8, 1.3)
+	reward_audio_player.playing = true

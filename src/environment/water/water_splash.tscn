@@ -51,3 +51,7 @@ initial_velocity_min = 3.0
 initial_velocity_max = 3.0
 scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_djg3v")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+autoplay = true

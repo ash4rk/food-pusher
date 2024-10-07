@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://lwdyes1obava"]
+[gd_scene load_steps=3 format=3 uid="uid://lwdyes1obava"]
 
 [ext_resource type="Script" path="res://src/thrower/thrower.gd" id="1_fslfu"]
+[ext_resource type="Script" path="res://src/thrower/throw_audio.gd" id="2_hw82m"]
 
 [node name="Thrower" type="Node3D"]
 script = ExtResource("1_fslfu")
 
 [node name="MovingHolder" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="ThrowAudioPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+pitch_scale = 2.0
+script = ExtResource("2_hw82m")

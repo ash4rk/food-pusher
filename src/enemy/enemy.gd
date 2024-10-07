@@ -8,6 +8,8 @@ const MODELS_PATH: String = "res://assets/models/kenney_characters/"
 @onready var startup_mesh: Node3D = $CharacterMesh
 @onready var anim_player: AnimationPlayer = $CharacterMesh/AnimationPlayer
 @onready var food_detector: Area3D = $FoodDetector
+@onready var hit_audio_player: AudioStreamPlayer = $HitAudioStreamer
+@onready var die_audio_player: AudioStreamPlayer = $DieAudioStreamer
 
 var world: Node3D = null
 
@@ -16,8 +18,10 @@ var health = MAX_HEALTH :
 		if new_value < health:
 			if new_value > 0:
 				anim_player.play("emote-no")
+				_play_hit_audio()
 			else:
 				anim_player.play("die")
+				_play_die_audio()
 		health = max(new_value, 0)
 
 func _ready() -> void:
@@ -54,9 +58,16 @@ func _spawn_box():
 	randomize()
 	var rnd = randf()
 	var drop: RigidBody3D = DATA_RES.get_drop_by_chance(rnd)
-	# TODO: Resolve this and avoid double get_parent
 	self.world.add_child(drop)
 	drop.global_position = self.global_position
 	var enemy_back_vec = -global_transform.basis.z
 	var poke_vec = enemy_back_vec + Vector3.UP
 	drop.apply_central_impulse(poke_vec * BOX_POKE_LENGTH)
+
+func _play_hit_audio():
+	hit_audio_player.pitch_scale = randf_range(0.8, 1.2)
+	hit_audio_player.playing = true
+
+func _play_die_audio():
+	die_audio_player.pitch_scale = randf_range(2, 2.5)
+	die_audio_player.playing = true
