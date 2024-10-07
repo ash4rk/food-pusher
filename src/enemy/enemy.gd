@@ -9,6 +9,8 @@ const MODELS_PATH: String = "res://assets/models/kenney_characters/"
 @onready var anim_player: AnimationPlayer = $CharacterMesh/AnimationPlayer
 @onready var food_detector: Area3D = $FoodDetector
 
+var world: Node3D = null
+
 var health = MAX_HEALTH :
 	set(new_value):
 		if new_value < health:
@@ -53,7 +55,7 @@ func _spawn_box():
 	var rnd = randf()
 	var drop: RigidBody3D = DATA_RES.get_drop_by_chance(rnd)
 	# TODO: Resolve this and avoid double get_parent
-	get_parent().get_parent().add_child(drop)
+	self.world.add_child(drop)
 	drop.global_position = self.global_position
 	var enemy_back_vec = -global_transform.basis.z
 	var poke_vec = enemy_back_vec + Vector3.UP

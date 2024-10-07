@@ -71,3 +71,5 @@ transform = Transform3D(0.943286, 0, -0.33198, 0, 1, 0, 0.33198, 0, 0.943286, -0
 
 [node name="basketball-game3" parent="Mesh/Column/TopDecorations" instance=ExtResource("4_maqaj")]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -0.853058, 2.13953, 0.313828)
+
+[node name="EnemyGroup" type="Node3D" parent="."]

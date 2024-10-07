@@ -6,6 +6,8 @@ extends Node3D
 @export var SPOT_SCENE: PackedScene
 @export var ROTATION_SPEED: float = 0.2
 
+@onready var enemy_group = $EnemyGroup
+
 func _ready() -> void:
 	gen_enemy_spots(RADIUS, 12, SPOT_SCENE)
 
@@ -19,6 +21,12 @@ func gen_enemy_spots(radius: float, spots_num: int, spot_scene: PackedScene) -> 
 		var x = radius * cos(angle_radians)
 		var z = radius * -sin(angle_radians)
 		var instance = spot_scene.instantiate()
-		add_child(instance)
+		enemy_group.add_child(instance)
 		instance.position = Vector3(x, ENEMY_SPOT_HEIGHT, z)
 		instance.rotation.y = (angle_radians + deg_to_rad(90))
+		instance.world = get_parent()
+
+func respawn_enemies():
+	for child in enemy_group.get_children():
+		child.queue_free()
+	gen_enemy_spots(RADIUS, 12, SPOT_SCENE)
