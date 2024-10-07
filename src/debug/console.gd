@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if _is_machine_gun_enabled:
-		thrower.throw(thrower._food_in_holder)
+		thrower.throw(thrower.food_in_holder)
 		thrower.food_in_holder = thrower.create_random_food()
 
 func _input(event: InputEvent) -> void:
