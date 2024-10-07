@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3wcvrxcb22nm"]
+[gd_scene load_steps=5 format=3 uid="uid://d3wcvrxcb22nm"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://bx8hm4c0vr4cx" path="res://data/physics_material.tres" id="1_ll5iw"]
 [ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_m27vm"]
 [ext_resource type="PackedScene" uid="uid://rawe2ctjus5p" path="res://assets/models/kenney_food-kit/meat-cooked.glb" id="2_f13ms"]
 
@@ -8,6 +9,7 @@ height = 0.0468694
 radius = 0.154446
 
 [node name="Meat" type="RigidBody3D" groups=["foods"]]
+physics_material_override = ExtResource("1_ll5iw")
 script = ExtResource("1_m27vm")
 type = "Food (aka coin)"
 

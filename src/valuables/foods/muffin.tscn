@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0rncer385jc8"]
+[gd_scene load_steps=5 format=3 uid="uid://c0rncer385jc8"]
 
 [ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_646eu"]
+[ext_resource type="PhysicsMaterial" uid="uid://bx8hm4c0vr4cx" path="res://data/physics_material.tres" id="1_an6b7"]
 [ext_resource type="PackedScene" uid="uid://c2cabsxo67r5x" path="res://assets/models/kenney_food-kit/muffin.glb" id="2_p8c0g"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qyip4"]
@@ -8,6 +9,7 @@ height = 0.145214
 radius = 0.0840564
 
 [node name="Muffin" type="RigidBody3D" groups=["foods"]]
+physics_material_override = ExtResource("1_an6b7")
 script = ExtResource("1_646eu")
 type = "Food (aka coin)"
 

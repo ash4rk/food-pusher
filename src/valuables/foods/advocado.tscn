@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://gyopufyoy24v"]
+[gd_scene load_steps=5 format=3 uid="uid://gyopufyoy24v"]
 
 [ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_8gxg6"]
+[ext_resource type="PhysicsMaterial" uid="uid://bx8hm4c0vr4cx" path="res://data/physics_material.tres" id="1_8sxc4"]
 [ext_resource type="PackedScene" uid="uid://dwyo5764myt30" path="res://assets/models/kenney_food-kit/advocado-half.glb" id="2_ekegf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_br6bi"]
@@ -8,6 +9,7 @@ radius = 0.116664
 height = 0.315251
 
 [node name="Advocado" type="RigidBody3D" groups=["foods"]]
+physics_material_override = ExtResource("1_8sxc4")
 script = ExtResource("1_8gxg6")
 type = "Food (aka coin)"
 

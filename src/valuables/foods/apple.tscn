@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://322rg80x5ljf"]
+[gd_scene load_steps=5 format=3 uid="uid://322rg80x5ljf"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://bx8hm4c0vr4cx" path="res://data/physics_material.tres" id="1_0r4dw"]
 [ext_resource type="Script" path="res://src/valuables/base_valuable.gd" id="1_334t7"]
 [ext_resource type="PackedScene" uid="uid://dcxrjcibaq713" path="res://assets/models/kenney_food-kit/apple.glb" id="1_uorp4"]
 
@@ -7,6 +8,7 @@
 radius = 0.106295
 
 [node name="Apple" type="RigidBody3D" groups=["foods"]]
+physics_material_override = ExtResource("1_0r4dw")
 freeze = true
 script = ExtResource("1_334t7")
 type = "Food (aka coin)"
