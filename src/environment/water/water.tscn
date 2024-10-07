@@ -40,4 +40,4 @@ shape = SubResource("BoxShape3D_fql8y")
 
 [node name="RewardAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_kogp6")
-volume_db = -15.0
+volume_db = -20.0
