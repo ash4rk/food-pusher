@@ -78,4 +78,4 @@ func _play_die_audio():
 func _emit_hit_particles():
 	var instance = HIT_PARTICLES_SCENE.instantiate()
 	get_parent().add_child(instance)
-	instance.global_position = particle_place.global_position
+	instance.global_transform = particle_place.global_transform

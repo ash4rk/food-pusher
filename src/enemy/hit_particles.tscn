@@ -5,6 +5,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3e1y"]
 transparency = 1
+cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0.913725, 0.886275, 0.121569, 1)
 albedo_texture = ExtResource("1_bihlp")
