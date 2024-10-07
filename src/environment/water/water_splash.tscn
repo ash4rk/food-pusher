@@ -1,14 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://ct2vfaayhjrh4"]
 
-[ext_resource type="Texture2D" uid="uid://cgm6pksp2la5s" path="res://assets/textures/water_circles_mask.png" id="1_53aqk"]
+[ext_resource type="Texture2D" uid="uid://blbu34yttu6au" path="res://assets/textures/kenney_particle/PNG (Transparent)/circle_03.png" id="1_vt4eg"]
 [ext_resource type="Script" path="res://src/environment/water/water_splash.gd" id="2_iycft"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bll0p"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.77711, 0.84613, 0.940559, 1)
-albedo_texture = ExtResource("1_53aqk")
-uv1_scale = Vector3(0.27, 0.345, 1)
+albedo_texture = ExtResource("1_vt4eg")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8sew6"]
 material = SubResource("StandardMaterial3D_bll0p")
