@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://duhjuei23ge2p" path="res://src/environment/water/water.tscn" id="7_35qej"]
 [ext_resource type="Script" path="res://src/debug/debug_cam.gd" id="10_br5kq"]
 [ext_resource type="PackedScene" uid="uid://bnmlnik2hgf2b" path="res://src/ui/widgets/no_throws_alert_ui.tscn" id="10_t0k5c"]
-[ext_resource type="Script" path="res://src/debug/console.gd" id="11_aw77k"]
 [ext_resource type="PackedScene" uid="uid://cnounborj62l5" path="res://src/ui/widgets/game_stats_ui.tscn" id="11_n2lx6"]
+[ext_resource type="PackedScene" uid="uid://cb5ijb1qxbmd6" path="res://src/debug/console.tscn" id="11_oawom"]
 
 [sub_resource type="Gradient" id="Gradient_e2e57"]
 offsets = PackedFloat32Array(0.350554, 0.678967)
@@ -141,71 +141,4 @@ transform = Transform3D(0.670129, -0.264787, 0.693408, 4.86004e-10, 0.934204, 0.
 far = 400.0
 script = ExtResource("10_br5kq")
 
-[node name="Console" type="ColorRect" parent="UI/Debug"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -267.0
-offset_top = 12.0
-offset_right = -12.0
-offset_bottom = 303.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-color = Color(0, 0, 0, 0.615686)
-script = ExtResource("11_aw77k")
-
-[node name="VBox" type="VBoxContainer" parent="UI/Debug/Console"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Titile" type="Label" parent="UI/Debug/Console/VBox"]
-layout_mode = 2
-text = "Debug window"
-horizontal_alignment = 1
-
-[node name="GiveThrowsBtn" type="Button" parent="UI/Debug/Console/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-focus_mode = 0
-text = "Set 100 throws"
-
-[node name="RespawnBtn" type="Button" parent="UI/Debug/Console/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-focus_mode = 0
-text = "Respawn Enemies"
-
-[node name="CamControlLabel" type="Label" parent="UI/Debug/Console/VBox"]
-layout_mode = 2
-text = "Toggle debug cam: 'C'"
-vertical_alignment = 1
-
-[node name="CamControlLabel2" type="Label" parent="UI/Debug/Console/VBox"]
-layout_mode = 2
-text = "Debug cam fov: mouse wheel"
-vertical_alignment = 1
-
-[node name="HideControllabel" type="Label" parent="UI/Debug/Console/VBox"]
-layout_mode = 2
-text = "Hide/show this window: 'W'"
-vertical_alignment = 1
-
-[node name="MachineGunModeChbx" type="CheckButton" parent="UI/Debug/Console/VBox"]
-layout_mode = 2
-focus_mode = 0
-text = "Machine gun mode:"
-
-[node name="HaveFunLabel" type="Label" parent="UI/Debug/Console/VBox"]
-layout_mode = 2
-text = "--- Have fun! ---"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Console" parent="UI/Debug" instance=ExtResource("11_oawom")]

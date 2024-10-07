@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb5ijb1qxbmd6"]
+
+[ext_resource type="Script" path="res://src/debug/console.gd" id="1_y8xv0"]
+
+[node name="Console" type="ColorRect"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -267.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 351.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+color = Color(0, 0, 0, 0.709804)
+script = ExtResource("1_y8xv0")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titile" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Debug window"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="GiveThrowsBtn" type="Button" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+text = "Set 100 throws"
+
+[node name="RespawnBtn" type="Button" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+text = "Respawn Enemies"
+
+[node name="ControlsLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "------- Controls -------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="CamControlLabel4" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Throw Food: 'Space'"
+vertical_alignment = 1
+
+[node name="CamControlLabel3" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Toggle debug cam: 'C'"
+vertical_alignment = 1
+
+[node name="CamControlLabel2" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Debug cam fov: mouse wheel"
+vertical_alignment = 1
+
+[node name="HideControllabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Hide/show this window: 'W'"
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="MachineGunModeChbx" type="CheckButton" parent="VBox"]
+layout_mode = 2
+focus_mode = 0
+text = "Machine gun mode:"
+
+[node name="HSeparator4" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="HaveFunLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "  ----  Have fun!  :)  ----"
+horizontal_alignment = 1
+vertical_alignment = 1
