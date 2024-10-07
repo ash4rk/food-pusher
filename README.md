@@ -1,5 +1,8 @@
 # food-pusher 🍔
 Godot – 4.3 branch
+## File Structure
+![file_structure](https://github.com/user-attachments/assets/c5e41b6a-5663-4416-969d-418c3a03d4c9)
+
 ## Previews
 
 ### Basic Loop
