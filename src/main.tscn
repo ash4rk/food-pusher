@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bfrudbi127ate"]
+[gd_scene load_steps=27 format=3 uid="uid://bfrudbi127ate"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_8n3pa"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_va7wq"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cnounborj62l5" path="res://src/ui/widgets/game_stats_ui.tscn" id="11_n2lx6"]
 [ext_resource type="PackedScene" uid="uid://cb5ijb1qxbmd6" path="res://src/debug/console.tscn" id="11_oawom"]
 [ext_resource type="AudioStream" uid="uid://c8t0shnlmfn6q" path="res://assets/sfx/waves_loop.mp3" id="12_ih777"]
+[ext_resource type="PackedScene" uid="uid://dj0eteh82dw70" path="res://src/enemy/hit_particles.tscn" id="13_s3bmj"]
 
 [sub_resource type="Gradient" id="Gradient_e2e57"]
 offsets = PackedFloat32Array(0.350554, 0.678967)
@@ -148,3 +149,6 @@ script = ExtResource("10_br5kq")
 stream = ExtResource("12_ih777")
 volume_db = -8.0
 autoplay = true
+
+[node name="HitParticles" parent="." instance=ExtResource("13_s3bmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31436, 2.70117, -7.76108)

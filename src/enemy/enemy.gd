@@ -4,10 +4,12 @@ const MAX_HEALTH: int = 5
 const BOX_POKE_LENGTH: float = 1.4
 const MODELS_PATH: String = "res://assets/models/kenney_characters/"
 
+@onready var HIT_PARTICLES_SCENE: PackedScene = load("res://src/enemy/hit_particles.tscn")
 @onready var DATA_RES: Resource = load("res://data/valuables.tres")
 @onready var startup_mesh: Node3D = $CharacterMesh
 @onready var anim_player: AnimationPlayer = $CharacterMesh/AnimationPlayer
 @onready var food_detector: Area3D = $FoodDetector
+@onready var particle_place: Node3D = $ParticlePlace
 @onready var hit_audio_player: AudioStreamPlayer = $HitAudioStreamer
 @onready var die_audio_player: AudioStreamPlayer = $DieAudioStreamer
 
@@ -45,6 +47,7 @@ func _set_random_mesh():
 func _on_body_entered(body: Node3D):
 	if body.is_in_group("foods"):
 		self.health -= 1
+		_emit_hit_particles()
 
 func _anim_sequences(anim_name: String):
 	match anim_name:
@@ -71,3 +74,8 @@ func _play_hit_audio():
 func _play_die_audio():
 	die_audio_player.pitch_scale = randf_range(2, 2.5)
 	die_audio_player.playing = true
+
+func _emit_hit_particles():
+	var instance = HIT_PARTICLES_SCENE.instantiate()
+	get_parent().add_child(instance)
+	instance.global_position = particle_place.global_position

@@ -16,7 +16,7 @@ func _ready() -> void:
 	respawn_btn.pressed.connect(_on_respawn_btn_pressed)
 	machine_gun_mode_chbx.toggled.connect(_on_machine_gun_mode_toggled)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _is_machine_gun_enabled:
 		thrower.throw(thrower.food_in_holder)
 		thrower.food_in_holder = thrower.create_random_food()

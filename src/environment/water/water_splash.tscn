@@ -16,12 +16,12 @@ material = SubResource("StandardMaterial3D_bll0p")
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.351682, 0.701604), 1.5334, 1.5334, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evue5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8r57"]
 transparency = 1
 blend_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_02yvx"]
-material = SubResource("StandardMaterial3D_evue5")
+material = SubResource("StandardMaterial3D_o8r57")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="Curve" id="Curve_djg3v"]

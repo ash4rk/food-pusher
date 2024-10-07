@@ -14,6 +14,9 @@ size = Vector3(0.371582, 0.668457, 0.332245)
 [node name="Enemy" type="StaticBody3D"]
 script = ExtResource("1_c0lx3")
 
+[node name="ParticlePlace" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.611875, 0.158564)
+
 [node name="CharacterMesh" parent="." instance=ExtResource("1_33iy0")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

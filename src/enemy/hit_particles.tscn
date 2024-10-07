@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj0eteh82dw70"]
+
+[ext_resource type="Texture2D" uid="uid://370gakq2pt7e" path="res://assets/textures/kenney_particle/PNG (Transparent)/magic_05.png" id="1_bihlp"]
+[ext_resource type="Script" path="res://src/enemy/hit_particles.gd" id="2_mqp2s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3e1y"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.913725, 0.886275, 0.121569, 1)
+albedo_texture = ExtResource("1_bihlp")
+
+[sub_resource type="QuadMesh" id="QuadMesh_chgrk"]
+material = SubResource("StandardMaterial3D_c3e1y")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="Curve" id="Curve_hcl65"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0981735, 0.843103), 0.0, 0.0, 0, 0, Vector2(0.360731, 0.165086), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="HitParticles" type="CPUParticles3D"]
+emitting = false
+amount = 7
+one_shot = true
+explosiveness = 0.96
+mesh = SubResource("QuadMesh_chgrk")
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.5
+initial_velocity_max = 2.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_hcl65")
+script = ExtResource("2_mqp2s")
